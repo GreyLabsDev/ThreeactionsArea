@@ -5,15 +5,12 @@ class CoverArtCard extends StatelessWidget {
   CoverArtCard({this.imageUrl});
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 300.0,
-      height: 120.0,
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          fit: BoxFit.cover,
-          image: NetworkImage(imageUrl),
-        ),
-        borderRadius: BorderRadius.all(Radius.circular(38.0)),
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(8.0),
+      child: Image.network(
+        imageUrl,
+        height: 350.0,
+        width: 350.0,
       ),
     );
   }
