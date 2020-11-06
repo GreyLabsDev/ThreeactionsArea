@@ -30,7 +30,7 @@ class MainPageState extends State<MainPage> {
           MusicServiceCard(
             title: "Spotify",
             iconUrl:
-                "https://raw.githubusercontent.com/GreyLabsDev/ThreeactionsArea/main/img/cover_art.png",
+                "https://raw.githubusercontent.com/GreyLabsDev/ThreeactionsArea/main/img/icon_spotify.png",
           ),
           SizedBox(height: 8.0),
           MusicServiceCard(
