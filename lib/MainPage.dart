@@ -18,7 +18,7 @@ class MainPageState extends State<MainPage> {
       decoration: BoxDecoration(
           image: DecorationImage(
               image: Image.network(
-        "https://raw.githubusercontent.com/GreyLabsDev/ThreeactionsArea/main/img/cover_art.png",
+        "https://raw.githubusercontent.com/GreyLabsDev/ThreeactionsArea/main/img/web_bg.png",
         fit: BoxFit.fitWidth,
       ).image)),
       child: Center(
@@ -76,14 +76,6 @@ class MainPageState extends State<MainPage> {
                   "https://music.youtube.com/watch?v=RGL1Rf1_EXw&feature=share",
               iconUrl:
                   "https://raw.githubusercontent.com/GreyLabsDev/ThreeactionsArea/main/img/icon_youtube_music.png",
-            ),
-            SizedBox(height: 8.0),
-            MusicServiceCard(
-              title: "Google Play Music",
-              redirectUrl:
-                  "https://play.google.com/music/m/Tdm7vg5pg4ldbtg2noiwbvtuwey?t=Unusual_-_Threeactions",
-              iconUrl:
-                  "https://raw.githubusercontent.com/GreyLabsDev/ThreeactionsArea/main/img/icon_google_play_music.png",
             ),
             SizedBox(height: 24.0),
           ],
