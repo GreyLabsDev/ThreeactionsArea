@@ -15,7 +15,7 @@ class MainPageState extends State<MainPage> {
         body: Stack(
       children: [
         Image.network(
-          "https://raw.githubusercontent.com/GreyLabsDev/ThreeactionsArea/main/img/web_bg_cover.png",
+          "https://raw.githubusercontent.com/GreyLabsDev/ThreeactionsArea/main/img/web_bg_cover.jpg",
           fit: BoxFit.cover,
           height: double.infinity,
           width: double.infinity,
