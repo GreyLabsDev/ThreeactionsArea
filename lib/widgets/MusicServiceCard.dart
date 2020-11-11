@@ -11,6 +11,8 @@ class MusicServiceCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: 350.0,
+      padding: EdgeInsets.only(top: 16.0, bottom: 16.0),
       decoration: BoxDecoration(
           color: Colors.black54, borderRadius: BorderRadius.circular(16.0)),
       child: Row(
