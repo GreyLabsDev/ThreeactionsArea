@@ -21,6 +21,9 @@ class MainPageState extends State<MainPage> {
           width: double.infinity,
           alignment: Alignment.center,
         ),
+        Container(
+          color: Colors.black45,
+        ),
         Center(
             child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
@@ -35,7 +38,6 @@ class MainPageState extends State<MainPage> {
               ),
               SizedBox(height: 16.0),
               Text("UNUSUAL", style: Resources.textStyleTitle),
-              SizedBox(height: 6.0),
               Text("by Threeactions", style: Resources.textStyleTitle),
               SizedBox(height: 16.0),
               MusicServiceCard(
