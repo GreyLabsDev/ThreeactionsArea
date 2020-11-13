@@ -1,16 +1,33 @@
-# threeactions_area
+# ThreeactionsArea
 
-A new Flutter project.
+Single-page web app for sharing music singles/albums with your audience. It was developed for my own single "Unusual" and future releases.
+Project is fully reusable, just use your own text/links and rebuild web app.
 
-## Getting Started
+### How to use widgets
+**CoverArtCard**
 
-This project is a starting point for a Flutter application.
+Widget for showing track or album cover art
+```
+CoverArtCard(
+  imageUrl: "https://somehoest.com/cover_art.png", // url of your cover art
+)
+```
+**MusicServiceCard**
 
-A few resources to get you started if this is your first Flutter project:
+Widget for redirecting to music services with track or album
+```
+MusicServiceCard(
+  title: "Spotify", // Music service title, like Spotify, Apple music and others
+  redirectUrl: "https://open.spotify.com/track/your_track", // your track url on this music service
+  iconUrl: "https://somehoest.com/icon_of_music_service.png", // music service icon url
+)
+```
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+### Libraries
+- [url_launcher](https://pub.dev/packages/url_launcher)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Useful links
+- [Flutter documentation](https://flutter.dev/docs)
+- [Dart documentation](https://flutter.dev/docs/resources/bootstrap-into-dart)
+- [Web support for Flutter](https://flutter.dev/web)
+- [Building a web application with Flutter](https://flutter.dev/docs/get-started/web)
