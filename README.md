@@ -9,7 +9,7 @@ Project is fully reusable, just use your own text/links and rebuild web app.
 Widget for showing track or album cover art
 ```
 CoverArtCard(
-  imageUrl: "https://somehoest.com/cover_art.png", // url of your cover art
+  imageUrl: "https://somehost.com/cover_art.png", // url of your cover art
 )
 ```
 **MusicServiceCard**
@@ -19,7 +19,7 @@ Widget for redirecting to music services with track or album
 MusicServiceCard(
   title: "Spotify", // Music service title, like Spotify, Apple music and others
   redirectUrl: "https://open.spotify.com/track/your_track", // your track url on this music service
-  iconUrl: "https://somehoest.com/icon_of_music_service.png", // music service icon url
+  iconUrl: "https://somehost.com/icon_of_music_service.png", // music service icon url
 )
 ```
 
