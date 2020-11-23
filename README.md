@@ -3,6 +3,8 @@
 Single-page web app for sharing music singles/albums with your audience. It was developed for my own single "Unusual" and future releases.
 Project is fully reusable, just use your own text/links and rebuild web app.
 
+![screenshoot](https://raw.githubusercontent.com/GreyLabsDev/ThreeactionsArea/main/scr.png)
+
 ### How to use widgets
 **CoverArtCard**
 
