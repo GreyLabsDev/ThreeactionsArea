@@ -1,7 +1,7 @@
 # ThreeactionsArea
 
-Single-page web app for sharing music singles/albums with your audience. It was developed for my own single "Unusual" and future releases.
-Project is fully reusable, just use your own text/links and rebuild web app.
+My personal single-page website. It was developed for sharing py music releases, some info about me and my projects.
+You can use this project as example for your own web app.
 
 ![screenshoot](https://raw.githubusercontent.com/GreyLabsDev/ThreeactionsArea/main/scr.png)
 
@@ -33,3 +33,4 @@ MusicServiceCard(
 - [Dart documentation](https://flutter.dev/docs/resources/bootstrap-into-dart)
 - [Web support for Flutter](https://flutter.dev/web)
 - [Building a web application with Flutter](https://flutter.dev/docs/get-started/web)
+- [Deploy your Flutter web application on github pages](https://itnext.io/deploy-and-maintain-your-flutter-web-build-in-github-pages-exclusively-6dfc3c3ec9cc)
