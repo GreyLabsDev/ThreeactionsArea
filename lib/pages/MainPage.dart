@@ -20,7 +20,7 @@ class MainPageState extends State<MainPage> {
           children: [
             ColorFiltered(
                 colorFilter: ColorFilter.mode(
-                    Colors.black.withOpacity(0.4), BlendMode.dstATop),
+                    Colors.black.withOpacity(0.3), BlendMode.dstATop),
                 child: Image.network(
                   "https://raw.githubusercontent.com/GreyLabsDev/ThreeactionsArea/main/img/bg_main.png",
                   fit: BoxFit.cover,
