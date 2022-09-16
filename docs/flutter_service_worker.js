@@ -3,27 +3,31 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
-  "version.json": "59167b61aa627d749772442fb08fa826",
-"index.html": "8fa595b86fc81a93ac258d230325658d",
-"/": "8fa595b86fc81a93ac258d230325658d",
-"main.dart.js": "42431f558b147f04221b59776d932d8a",
+  "version.json": "a1c3d8bebbf1c1f1fa059c3557e93bc3",
+"index.html": "9739d14dece70170b5dff015d7a7689c",
+"/": "9739d14dece70170b5dff015d7a7689c",
+"main.dart.js": "0adb672a69dacd39343b8773699ffb7b",
+"flutter.js": "eb2682e33f25cd8f1fc59011497c35f8",
 "favicon.png": "5dcef449791fa27946b3d35ad8803796",
 "icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
 "manifest.json": "21038294cb442fc7e48982e147647509",
-"assets/AssetManifest.json": "f7addef11591b2b4b127ca11543ca4cf",
-"assets/NOTICES": "55f32fae4cfc6c50637c72562656aafb",
+"assets/AssetManifest.json": "18911dab102ab35b67f70b5910d72c1c",
+"assets/NOTICES": "3f08041f20e37ffa8f211191b8cd8199",
 "assets/FontManifest.json": "3302be09cf8e5e9e5c0b00b000e325b2",
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "115e937bb829a890521f72d2e664b632",
-"assets/fonts/MaterialIcons-Regular.otf": "1288c9e28052e028aba623321f7826ac",
-"assets/fonts/Teko-Regular.ttf": "b35fa5f3177a8afc45d037059d2ec630"
+"assets/fonts/MaterialIcons-Regular.otf": "95db9098c58fd6db106f1116bae85a0b",
+"assets/fonts/Teko-Regular.ttf": "b35fa5f3177a8afc45d037059d2ec630",
+"canvaskit/canvaskit.js": "c2b4e5f3d7a3d82aed024e7249a78487",
+"canvaskit/profiling/canvaskit.js": "ae2949af4efc61d28a4a80fffa1db900",
+"canvaskit/profiling/canvaskit.wasm": "95e736ab31147d1b2c7b25f11d4c32cd",
+"canvaskit/canvaskit.wasm": "4b83d89d9fecbea8ca46f2f760c5a9ba"
 };
 
 // The application shell files that are downloaded before a service worker can
 // start.
 const CORE = [
-  "/",
-"main.dart.js",
+  "main.dart.js",
 "index.html",
 "assets/NOTICES",
 "assets/AssetManifest.json",
@@ -34,7 +38,7 @@ self.addEventListener("install", (event) => {
   return event.waitUntil(
     caches.open(TEMP).then((cache) => {
       return cache.addAll(
-        CORE.map((value) => new Request(value + '?revision=' + RESOURCES[value], {'cache': 'reload'})));
+        CORE.map((value) => new Request(value, {'cache': 'reload'})));
     })
   );
 });
@@ -160,7 +164,7 @@ async function downloadOffline() {
     }
     currentContent[key] = true;
   }
-  for (var resourceKey in Object.keys(RESOURCES)) {
+  for (var resourceKey of Object.keys(RESOURCES)) {
     if (!currentContent[resourceKey]) {
       resources.push(resourceKey);
     }
