@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:threeactions_area/pages/MainPage.dart';
 
-import 'MainPage.dart';
+import 'pages/MusicReleasesPage.dart';
 
 void main() {
   runApp(MyApp());
