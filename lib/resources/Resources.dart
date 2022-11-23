@@ -34,4 +34,5 @@ class Resources {
       fontSize: 22.0,
       fontFamily: 'Teko',
       letterSpacing: 1.0);
+
 }

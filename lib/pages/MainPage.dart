@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:threeactions_area/pages/MusicReleasesPage.dart';
 import 'package:threeactions_area/widgets/base/SocialButton.dart';
 import 'package:threeactions_area/widgets/base/TextTitle.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../widgets/base/TextContent.dart';
 import '../widgets/base/TextSubtitle.dart';
@@ -20,7 +22,7 @@ class MainPageState extends State<MainPage> {
           children: [
             ColorFiltered(
                 colorFilter: ColorFilter.mode(
-                    Colors.black.withOpacity(0.3), BlendMode.dstATop),
+                    Colors.black.withOpacity(0.4), BlendMode.dstATop),
                 child: Image.network(
                   "https://raw.githubusercontent.com/GreyLabsDev/ThreeactionsArea/main/img/bg_main.png",
                   fit: BoxFit.cover,
@@ -29,7 +31,9 @@ class MainPageState extends State<MainPage> {
                   alignment: Alignment.center,
                   filterQuality: FilterQuality.low,
                 )),
-            Padding(
+            SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              child: Padding(
               padding: EdgeInsets.all(32),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -40,10 +44,6 @@ class MainPageState extends State<MainPage> {
                     height: 16.0,
                   ),
                   TextSubtitle(text: "Android developer, Flutter enthusiast"),
-                  SizedBox(
-                    height: 16.0,
-                  ),
-                  TextContent(text: "You can find me here:"),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -68,45 +68,91 @@ class MainPageState extends State<MainPage> {
                             "https://cdn-icons-png.flaticon.com/512/124/124021.png",
                         redirectUrl: "https://twitter.com/sergey_shr",
                       ),
-                      // SocialButton(
-                      //   imageUrl:
-                      //       "https://cdn3.iconfinder.com/data/icons/social-media-chamfered-corner/154/telegram-512.png",
-                      //   redirectUrl: "https://t.me/sergey_shr",
-                      // ),
                       SocialButton(
                         imageUrl:
                             "https://cdna.artstation.com/p/assets/images/images/047/850/148/large/arthur-deleye-artstation-logo.jpg?1648587486",
                         redirectUrl: "https://www.artstation.com/threeactions",
                       ),
+                      SocialButton(
+                        imageUrl:
+                            "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Spotify_App_Logo.svg/2048px-Spotify_App_Logo.svg.png",
+                        redirectUrl: "https://open.spotify.com/track/3NHfDEuRhrnpWN5hj5xRhr?si=NoxU-5qfSKebRbE7nXMALw",
+                      )
+                    ],
+                  ),
+                  SizedBox(height: 16.0,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      OutlinedButton(
+                        onPressed: () {
+                          _launchMailClient();
+                        },
+                        style: OutlinedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(8.0)),
+                            ),
+                            side: BorderSide(
+                                width: 1.0,
+                                color: Colors.amber,
+                                style: BorderStyle.solid)),
+                        child: TextSubtitle(text: "Email me"),
+                      ),
+                      SizedBox(width: 8.0,),
+                      OutlinedButton(
+                        onPressed: () {
+                          _openMusicPage(context);
+                        },
+                        style: OutlinedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(8.0)),
+                            ),
+                            side: BorderSide(
+                                width: 1.0,
+                                color: Colors.amber,
+                                style: BorderStyle.solid)),
+                        child: TextSubtitle(text: "My music releases"),
+                      )
                     ],
                   ),
                   SizedBox(
+                    height: 32.0,
+                  ),
+                  TextSubtitle(text: "Professional"),
+                  SizedBox(
                     height: 8.0,
+                  ),
+                  TextContent(
+                    text: "Android developer since 2018.\nEx cybersecurity analyst (2016-2018)\n-Understanding difference between B2B & B2C projects\n-Architecture fist\n-Product and custom development\n-UX/UI is better than early release date\n-If you want smth custom - you`ll get it\n-Scale from one package to dozens of modules",
                   ),
                   SizedBox(
                     height: 8.0,
                   ),
-                  TextContent(text: "or send email"),
+                  TextSubtitle(text: "Additional skills"),
                   SizedBox(
                     height: 8.0,
                   ),
-                  TextButton(
-                    onPressed: () {
-                      // _openMusicPage(context);
-                    },
-                    child: TextSubtitle(text: "email me"),
+                  TextContent(
+                    text: "-Python\n-Flutter/Dart\n-Figma",
                   ),
                   SizedBox(
-                    height: 16.0,
+                    height: 8.0,
                   ),
-                  TextButton(
-                    onPressed: () {
-                      _openMusicPage(context);
-                    },
-                    child: TextSubtitle(text: "TEST My music"),
-                  )
+                  TextSubtitle(text: "Personal"),
+                  SizedBox(
+                    height: 8.0,
+                  ),
+                  TextContent(
+                    text: "-Love making digital art\n-Music production is my main hobby\n-Learning new programming languages\n-Airsofter\n-Gamer\n-Good person",
+                  ),
+                  SizedBox(
+                    height: 32.0,
+                  ),
                 ],
               ),
+            ),
             ),
           ],
         ));
@@ -118,5 +164,12 @@ class MainPageState extends State<MainPage> {
         builder: (context) => MusicReleasePage(),
       ),
     );
+  }
+
+  void _launchMailClient() async {
+    const mailUrl = 'mailto:greyson.dean@gmail.com';
+    if (await canLaunch(mailUrl)) {
+      await launch(mailUrl);
+    }
   }
 }
