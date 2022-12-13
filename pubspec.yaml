@@ -51,9 +51,25 @@ flutter:
           weight: 700
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+  assets:
+    - assets/img/button_bg_skills.png
+    - assets/img/button_bg_art.png
+    - assets/img/button_bg_bio.png
+    - assets/img/button_bg_contacts.png
+    - assets/img/logo_skills.png
+    - assets/img/logo_skills_base.png
+    - assets/img/logo_skills_part.png
+    - assets/img/logo_art.png
+    - assets/img/logo_art_base.png
+    - assets/img/logo_art_part_bottom.png
+    - assets/img/logo_art_part_top.png
+    - assets/img/logo_bio.png
+    - assets/img/logo_bio_base.png
+    - assets/img/logo_bio_part.png
+    - assets/img/logo_contacts.png
+    - assets/img/logo_contacts_base.png
+    - assets/img/logo_contacts_part_top.png
+    - assets/img/logo_contacts_part_bottom.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
