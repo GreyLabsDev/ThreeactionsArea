@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:threeactions_area/pages/MainPage.dart';
+import 'package:threeactions_area/pages/TestPage.dart';
+import 'package:threeactions_area/pages/base/BaseInfoPage.dart';
+import 'package:threeactions_area/widgets/base/TextTitle.dart';
 
 import 'pages/MusicReleasesPage.dart';
 
@@ -12,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Threeactions',
-      home: MainPage(),
+      home: MusicReleasePage(),
     );
   }
 }

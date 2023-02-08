@@ -57,16 +57,20 @@ flutter:
     - assets/img/button_bg_bio.png
     - assets/img/button_bg_contacts.png
     - assets/img/logo_skills.png
+    - assets/img/logo_skills_big.png
     - assets/img/logo_skills_base.png
     - assets/img/logo_skills_part.png
     - assets/img/logo_art.png
+    - assets/img/logo_art_big.png
     - assets/img/logo_art_base.png
     - assets/img/logo_art_part_bottom.png
     - assets/img/logo_art_part_top.png
     - assets/img/logo_bio.png
+    - assets/img/logo_bio_big.png
     - assets/img/logo_bio_base.png
     - assets/img/logo_bio_part.png
     - assets/img/logo_contacts.png
+    - assets/img/logo_contacts_big.png
     - assets/img/logo_contacts_base.png
     - assets/img/logo_contacts_part_top.png
     - assets/img/logo_contacts_part_bottom.png
