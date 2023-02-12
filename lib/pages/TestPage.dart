@@ -18,24 +18,18 @@ class TestPageState extends State {
     return Scaffold(
         backgroundColor: Colors.black,
         body: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            SizedBox(height: 32.0,),
             Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
-                  width: 64,
-                ),
-                TextTitle(text: "S.SH"),
-                SizedBox(
-                  width: 64,
-                ),
-                TextTitle(
-                    text: "android developer & flutter enthusiast & speaker"),
+                TextTitle(text: "S.SH - android developer - flutter enthusiast - speaker"),
               ],
             ),
+            SizedBox(height: 32.0,),
             Expanded(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,

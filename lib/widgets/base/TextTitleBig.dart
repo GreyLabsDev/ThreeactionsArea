@@ -9,7 +9,7 @@ class TextTitleBig extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return (
-      Text(text, style: TextStylesContent.TitleBigLine)
+      Text(text, style: TextStylesContent.TitleBig)
     );
   }
 
