@@ -10,7 +10,7 @@ class TextSubtitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return (
-      Text(text, style: Resources.textStyleMainSubtitle,)
+      Text(text, style: TextStylesContent.Subtitle,)
     );
   }
 

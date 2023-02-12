@@ -37,8 +37,8 @@ class MusicReleasePageState extends State<MusicReleasePage> {
                     "https://raw.githubusercontent.com/GreyLabsDev/ThreeactionsArea/main/img/cover_art.png",
               ),
               SizedBox(height: 16.0),
-              Text("UNUSUAL", style: Resources.textStyleTitle),
-              Text("by Threeactions", style: Resources.textStyleTitle),
+              Text("UNUSUAL", style: TextStylesMusicRelease.Title),
+              Text("by Threeactions", style: TextStylesMusicRelease.Title),
               SizedBox(height: 16.0),
               MusicServiceCard(
                 title: "Yandex Music",

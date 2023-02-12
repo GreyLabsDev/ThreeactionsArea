@@ -126,7 +126,7 @@ class TestPageState extends State {
       title: "SKLS",
       mainImageAsset: "assets/img/button_bg_skills.png",
       logoImageAsset: "assets/img/logo_skills_big.png",
-      content: TextTitle(
+      content: TextSubtitle(
         text: "Some content",
       ),
     );
@@ -137,7 +137,7 @@ class TestPageState extends State {
       title: "BIO",
       mainImageAsset: "assets/img/button_bg_bio.png",
       logoImageAsset: "assets/img/logo_bio_big.png",
-      content: TextTitle(
+      content: TextSubtitle(
         text: "Some content",
       ),
     );
@@ -148,7 +148,7 @@ class TestPageState extends State {
       title: "ART",
       mainImageAsset: "assets/img/button_bg_art.png",
       logoImageAsset: "assets/img/logo_art_big.png",
-      content: TextTitle(
+      content: TextSubtitle(
         text: "Some content",
       ),
     );
@@ -163,7 +163,7 @@ class TestPageState extends State {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          TextContent(text: "Me on social networks",),
+          TextContent(text: "Here you can find me",),
           SizedBox(height: 8.0,),
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -196,7 +196,7 @@ class TestPageState extends State {
               ),
               SocialButton(
                 imageUrl:
-                    "https://cdna.artstation.com/p/assets/images/images/047/850/148/large/arthur-deleye-artstation-logo.jpg?1648587486",
+                    "https://cdn-icons-png.flaticon.com/512/5968/5968666.png",
                 redirectUrl: "https://www.artstation.com/threeactions",
               ),
               SocialButton(
@@ -206,7 +206,7 @@ class TestPageState extends State {
                     "https://open.spotify.com/track/3NHfDEuRhrnpWN5hj5xRhr?si=NoxU-5qfSKebRbE7nXMALw",
               )
             ],
-          )
+          ),
         ],
       ),
     );

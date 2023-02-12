@@ -49,7 +49,26 @@ flutter:
       fonts:
         - asset: fonts/Teko-Regular.ttf
           weight: 700
-
+    - family: ApexLight
+      fonts:
+        - asset: fonts/Apex-Mk3-ExtraLight.otf
+          weight: 700
+    - family: ApexMedium
+      fonts:
+        - asset: fonts/Apex-Mk3-Medium.otf
+          weight: 700
+    - family: LackRegular
+      fonts:
+        - asset: fonts/Lack-Regular.otf
+          weight: 700
+    - family: LackRegularLine
+      fonts:
+        - asset: fonts/Lack-Line-Regular.otf
+          weight: 700 
+    - family: EBENYA
+      fonts:
+        - asset: fonts/EBENYA.ttf
+          weight: 700
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/img/button_bg_skills.png

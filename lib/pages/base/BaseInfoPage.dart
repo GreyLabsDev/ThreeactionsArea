@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:threeactions_area/widgets/base/TextTitle.dart';
+import 'package:threeactions_area/widgets/base/TextTitleBig.dart';
 
 class BaseInfoPage extends StatelessWidget {
   final String title;
@@ -25,7 +26,7 @@ class BaseInfoPage extends StatelessWidget {
         children: [
           Container(
             width: 380.0,
-            padding: EdgeInsets.all(32.0),
+            padding: EdgeInsets.only(left: 32.0, top: 32.0, right: 32.0, bottom: 96.0),
             decoration: BoxDecoration(
                 image: DecorationImage(
               image: AssetImage(mainImageAsset),
@@ -39,7 +40,7 @@ class BaseInfoPage extends StatelessWidget {
                 ),
                 Align(
                   alignment: Alignment.bottomCenter,
-                  child: TextTitle(
+                  child: TextTitleBig(
                     text: title,
                   ),
                 )
@@ -48,9 +49,14 @@ class BaseInfoPage extends StatelessWidget {
           ),
           Expanded(
             child: Container(
-              padding: EdgeInsets.all(32.0),
               alignment: Alignment.topLeft,
-              child: content, // wrap content into vertical scroll container
+              child: SingleChildScrollView(
+                scrollDirection: Axis.vertical,
+                child: Padding(
+                  padding: EdgeInsets.all(32.0),
+                  child: content,
+                )
+              )
             ),
           )
         ],

@@ -10,7 +10,7 @@ class TextContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return (
-      Text(text, style: Resources.textStyleMainContent,)
+      Text(text, style: TextStylesContent.Content,)
     );
   }
 

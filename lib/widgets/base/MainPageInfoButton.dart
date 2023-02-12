@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:threeactions_area/widgets/base/AnimatedLogo.dart';
 import 'package:threeactions_area/widgets/base/TextSubtitle.dart';
+import 'package:threeactions_area/widgets/base/TextTitleBig.dart';
 
 class MainPageInfoButton extends StatefulWidget {
   final int number;
@@ -100,7 +101,7 @@ class MainPageInfoButtonState extends State
                         fit: BoxFit.cover,
                         opacity: opacityAcnimation.value)),
                 padding: EdgeInsets.only(
-                    left: 32.0, right: 32.0, bottom: 32.0, top: 16.0),
+                    left: 32.0, right: 32.0, bottom: 96.0, top: 16.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -117,7 +118,7 @@ class MainPageInfoButtonState extends State
                         movingPartImageAssetBottom:
                             logoMovingPartImageAssetBottom,
                         extraPadding: logoPartsExtraPadding),
-                    TextSubtitle(
+                    TextTitleBig(
                       text: title,
                     ),
                   ],
