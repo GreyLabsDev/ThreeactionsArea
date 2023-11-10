@@ -112,14 +112,14 @@ class PageButton extends StatefulWidget {
   double logoPartsExtraPadding = 0.0;
 
   PageButton(
-      {Key key,
-      @required this.number,
-      @required this.title,
-      @required this.bgImageAsset,
-      @required this.logoBaseImageAsset,
-      @required this.logoMovingPartImageAssetTop,
-      @required this.logoMovingPartImageAssetBottom,
-      this.logoPartsExtraPadding})
+      {Key? key,
+      required this.number,
+      required this.title,
+      required this.bgImageAsset,
+      required this.logoBaseImageAsset,
+      required this.logoMovingPartImageAssetTop,
+      required this.logoMovingPartImageAssetBottom,
+      this.logoPartsExtraPadding = 0.0})
       : super(key: key);
 
   @override
@@ -136,8 +136,8 @@ class PageButton extends StatefulWidget {
 }
 
 class PageButtonState extends State with SingleTickerProviderStateMixin {
-  AnimationController controller;
-  Animation opacityAcnimation;
+  late AnimationController controller;
+  late Animation opacityAcnimation;
   final GlobalKey<AnimatedLogoState> _logoStateKey = GlobalKey();
 
   final int number;
@@ -177,10 +177,10 @@ class PageButtonState extends State with SingleTickerProviderStateMixin {
       onHover: (isHovered) {
         if (isHovered) {
           _animateShow();
-          _logoStateKey.currentState.animate();
+          _logoStateKey.currentState?.animate();
         } else {
           _animateHide();
-          _logoStateKey.currentState.animate();
+          _logoStateKey.currentState?.animate();
         }
       },
       child: Container(
@@ -237,11 +237,11 @@ class AnimatedLogo extends StatefulWidget {
   double extraPadding = 0;
 
   AnimatedLogo(
-      {@required Key key,
-      @required this.baseImageAsset,
-      @required this.movingPartImageAssetTop,
-      @required this.movingPartImageAssetBottom,
-      this.extraPadding})
+      {required Key key,
+      required this.baseImageAsset,
+      required this.movingPartImageAssetTop,
+      required this.movingPartImageAssetBottom,
+      this.extraPadding = 0})
       : super(key: key);
 
   @override
@@ -252,8 +252,8 @@ class AnimatedLogo extends StatefulWidget {
 }
 
 class AnimatedLogoState extends State with SingleTickerProviderStateMixin {
-  AnimationController controller;
-  Animation movementAnimation;
+  late AnimationController controller;
+  late Animation movementAnimation;
   bool isExpanded = false;
 
   final String baseImageAsset;

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:threeactions_area/pages/MainPage.dart';
 
 import 'pages/MusicReleasesPage.dart';
+import 'pages/TestPage.dart';
 
 void main() {
   runApp(MyApp());

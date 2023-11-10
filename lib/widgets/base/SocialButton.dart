@@ -5,7 +5,7 @@ class SocialButton extends StatelessWidget {
   final String imageUrl;
   final String redirectUrl;
 
-  const SocialButton({Key key, this.imageUrl, this.redirectUrl}) : super(key: key);
+  const SocialButton({Key? key, required this.imageUrl, required this.redirectUrl}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
