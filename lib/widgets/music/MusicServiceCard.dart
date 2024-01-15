@@ -33,7 +33,7 @@ class MusicServiceCard extends StatelessWidget {
             ),
             Text(
               title,
-              style: Resources.textStyleSmallTitle,
+              style: TextStylesMusicRelease.TitleSmall,
             ),
             SizedBox(
               width: 24.0,
