@@ -7,11 +7,11 @@ class AnimatedLogo extends StatefulWidget {
   double extraPadding = 0;
 
   AnimatedLogo(
-      {@required Key key,
-      @required this.baseImageAsset,
-      @required this.movingPartImageAssetTop,
-      @required this.movingPartImageAssetBottom,
-      this.extraPadding})
+      {required Key key,
+      required this.baseImageAsset,
+      required this.movingPartImageAssetTop,
+      required this.movingPartImageAssetBottom,
+      this.extraPadding = 0.0})
       : super(key: key);
 
   @override
@@ -22,8 +22,8 @@ class AnimatedLogo extends StatefulWidget {
 }
 
 class AnimatedLogoState extends State with SingleTickerProviderStateMixin {
-  AnimationController controller;
-  Animation movementAnimation;
+  late AnimationController controller;
+  late Animation movementAnimation;
   bool isExpanded = false;
 
   final String baseImageAsset;

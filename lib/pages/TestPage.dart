@@ -3,6 +3,7 @@ import 'package:threeactions_area/widgets/base/TextContent.dart';
 import 'package:threeactions_area/widgets/base/TextSubtitle.dart';
 import 'package:threeactions_area/widgets/base/TextTitle.dart';
 
+import '../widgets/base/AnimatedLogo.dart';
 import '../widgets/base/MainPageInfoButton.dart';
 import '../widgets/base/SocialButton.dart';
 import 'base/BaseInfoPage.dart';
@@ -44,8 +45,7 @@ class TestPageState extends State {
                         "assets/img/logo_skills_part.png",
                     logoMovingPartImageAssetBottom:
                         "assets/img/logo_skills_part.png",
-                    onClickedAction: () =>
-                        {_openInfoPage(context, _createSkillsInfoPage())},
+                    onClickedAction: () => _openInfoPage(context, _createSkillsInfoPage()),
                   ),
                   VerticalDivider(
                     width: 2.0,
@@ -60,8 +60,7 @@ class TestPageState extends State {
                     logoMovingPartImageAssetBottom:
                         "assets/img/logo_bio_part.png",
                     logoPartsExtraPadding: 28.0,
-                    onClickedAction: () =>
-                        {_openInfoPage(context, _createBioInfoPage())},
+                    onClickedAction: () => _openInfoPage(context, _createBioInfoPage())
                   ),
                   VerticalDivider(
                     width: 2.0,
@@ -76,8 +75,7 @@ class TestPageState extends State {
                         "assets/img/logo_art_part_top.png",
                     logoMovingPartImageAssetBottom:
                         "assets/img/logo_art_part_bottom.png",
-                    onClickedAction: () =>
-                        {_openInfoPage(context, _createArtInfoPage())},
+                    onClickedAction: () => _openInfoPage(context, _createArtInfoPage())
                   ),
                   VerticalDivider(
                     width: 2.0,
@@ -93,8 +91,7 @@ class TestPageState extends State {
                     logoMovingPartImageAssetBottom:
                         "assets/img/logo_contacts_part_bottom.png",
                     logoPartsExtraPadding: 28.0,
-                    onClickedAction: () =>
-                        {_openInfoPage(context, _createContactInfoPage())},
+                    onClickedAction: () => _openInfoPage(context, _createContactInfoPage())
                   ),
                   VerticalDivider(
                     width: 2.0,
@@ -105,6 +102,105 @@ class TestPageState extends State {
             )
           ],
         ));
+  }
+
+  void _openInfoPage(BuildContext context, Widget page) {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => page,
+      ),
+    );
+  }
+
+  Widget _createSkillsInfoPage() {
+    return BaseInfoPage(
+      title: "SKLS",
+      mainImageAsset: "assets/img/button_bg_skills.png",
+      logoImageAsset: "assets/img/logo_skills_big.png",
+      content: TextSubtitle(
+        text: "Some content",
+      ),
+    );
+  }
+
+  Widget _createBioInfoPage() {
+    return BaseInfoPage(
+      title: "BIO",
+      mainImageAsset: "assets/img/button_bg_bio.png",
+      logoImageAsset: "assets/img/logo_bio_big.png",
+      content: TextSubtitle(
+        text: "Some content",
+      ),
+    );
+  }
+
+  Widget _createArtInfoPage() {
+    return BaseInfoPage(
+      title: "ART",
+      mainImageAsset: "assets/img/button_bg_art.png",
+      logoImageAsset: "assets/img/logo_art_big.png",
+      content: TextSubtitle(
+        text: "Some content",
+      ),
+    );
+  }
+
+  Widget _createContactInfoPage() {
+    return BaseInfoPage(
+      title: "CNCT",
+      mainImageAsset: "assets/img/button_bg_contacts.png",
+      logoImageAsset: "assets/img/logo_contacts_big.png",
+      content: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          TextContent(text: "Here you can find me",),
+          SizedBox(height: 8.0,),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SocialButton(
+                imageUrl: "https://static-00.iconduck.com/assets.00/gmail-icon-512x511-fih5xfbp.png",
+                redirectUrl: "mailto:greyson.dean@email.com",
+                enableStartPadding: false,
+              ),
+              SocialButton(
+                imageUrl:
+                    "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
+                redirectUrl: "https://github.com/GreyLabsDev",
+              ),
+              SocialButton(
+                imageUrl:
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXwDJB5CoM0AwKPRHbg4NYNzP6nNBWJ6a1E_MwbkTlDby2KG6lOfoDiL23AcMUuGy05MI&usqp=CAU",
+                redirectUrl: "https://www.linkedin.com/in/sergey-sh/",
+              ),
+              SocialButton(
+                imageUrl:
+                    "http://store-images.s-microsoft.com/image/apps.31997.13510798887167234.6cd52261-a276-49cf-9b6b-9ef8491fb799.30e70ce4-33c5-43d6-9af1-491fe4679377",
+                redirectUrl: "https://www.instagram.com/sergey.shr/",
+              ),
+              SocialButton(
+                imageUrl:
+                    "https://cdn-icons-png.flaticon.com/512/124/124021.png",
+                redirectUrl: "https://twitter.com/sergey_shr",
+              ),
+              SocialButton(
+                imageUrl:
+                    "https://cdn-icons-png.flaticon.com/512/5968/5968666.png",
+                redirectUrl: "https://www.artstation.com/threeactions",
+              ),
+              SocialButton(
+                imageUrl:
+                    "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Spotify_App_Logo.svg/2048px-Spotify_App_Logo.svg.png",
+                redirectUrl:
+                    "https://open.spotify.com/track/3NHfDEuRhrnpWN5hj5xRhr?si=NoxU-5qfSKebRbE7nXMALw",
+              )
+            ],
+          ),
+        ],
+      ),
+    );
   }
 }
 
@@ -233,131 +329,5 @@ class PageButtonState extends State with SingleTickerProviderStateMixin {
 
   void _animateHide() {
     controller.reverse();
-  }
-}
-
-class AnimatedLogo extends StatefulWidget {
-  final String baseImageAsset;
-  final String movingPartImageAssetTop;
-  final String movingPartImageAssetBottom;
-  double extraPadding = 0;
-
-  AnimatedLogo(
-      {required Key key,
-      required this.baseImageAsset,
-      required this.movingPartImageAssetTop,
-      required this.movingPartImageAssetBottom,
-      this.extraPadding = 0})
-      : super(key: key);
-
-  @override
-  AnimatedLogoState createState() {
-    return AnimatedLogoState(baseImageAsset, movingPartImageAssetTop,
-        movingPartImageAssetBottom, extraPadding ?? 0);
-  }
-}
-
-class AnimatedLogoState extends State with SingleTickerProviderStateMixin {
-  late AnimationController controller;
-  late Animation movementAnimation;
-  bool isExpanded = false;
-
-  void _openInfoPage(BuildContext context, Widget page) {
-    Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (context) => page,
-      ),
-    );
-  }
-
-  Widget _createSkillsInfoPage() {
-    return BaseInfoPage(
-      title: "SKLS",
-      mainImageAsset: "assets/img/button_bg_skills.png",
-      logoImageAsset: "assets/img/logo_skills_big.png",
-      content: TextSubtitle(
-        text: "Some content",
-      ),
-    );
-  }
-
-  Widget _createBioInfoPage() {
-    return BaseInfoPage(
-      title: "BIO",
-      mainImageAsset: "assets/img/button_bg_bio.png",
-      logoImageAsset: "assets/img/logo_bio_big.png",
-      content: TextSubtitle(
-        text: "Some content",
-      ),
-    );
-  }
-
-  Widget _createArtInfoPage() {
-    return BaseInfoPage(
-      title: "ART",
-      mainImageAsset: "assets/img/button_bg_art.png",
-      logoImageAsset: "assets/img/logo_art_big.png",
-      content: TextSubtitle(
-        text: "Some content",
-      ),
-    );
-  }
-
-  Widget _createContactInfoPage() {
-    return BaseInfoPage(
-      title: "CNCT",
-      mainImageAsset: "assets/img/button_bg_contacts.png",
-      logoImageAsset: "assets/img/logo_contacts_big.png",
-      content: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          TextContent(text: "Here you can find me",),
-          SizedBox(height: 8.0,),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SocialButton(
-                imageUrl: "https://static-00.iconduck.com/assets.00/gmail-icon-512x511-fih5xfbp.png",
-                redirectUrl: "mailto:greyson.dean@email.com",
-                enableStartPadding: false,
-              ),
-              SocialButton(
-                imageUrl:
-                    "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
-                redirectUrl: "https://github.com/GreyLabsDev",
-              ),
-              SocialButton(
-                imageUrl:
-                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXwDJB5CoM0AwKPRHbg4NYNzP6nNBWJ6a1E_MwbkTlDby2KG6lOfoDiL23AcMUuGy05MI&usqp=CAU",
-                redirectUrl: "https://www.linkedin.com/in/sergey-sh/",
-              ),
-              SocialButton(
-                imageUrl:
-                    "http://store-images.s-microsoft.com/image/apps.31997.13510798887167234.6cd52261-a276-49cf-9b6b-9ef8491fb799.30e70ce4-33c5-43d6-9af1-491fe4679377",
-                redirectUrl: "https://www.instagram.com/sergey.shr/",
-              ),
-              SocialButton(
-                imageUrl:
-                    "https://cdn-icons-png.flaticon.com/512/124/124021.png",
-                redirectUrl: "https://twitter.com/sergey_shr",
-              ),
-              SocialButton(
-                imageUrl:
-                    "https://cdn-icons-png.flaticon.com/512/5968/5968666.png",
-                redirectUrl: "https://www.artstation.com/threeactions",
-              ),
-              SocialButton(
-                imageUrl:
-                    "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Spotify_App_Logo.svg/2048px-Spotify_App_Logo.svg.png",
-                redirectUrl:
-                    "https://open.spotify.com/track/3NHfDEuRhrnpWN5hj5xRhr?si=NoxU-5qfSKebRbE7nXMALw",
-              )
-            ],
-          ),
-        ],
-      ),
-    );
   }
 }

@@ -4,7 +4,7 @@ import 'package:threeactions_area/resources/Resources.dart';
 class TextTitleBig extends StatelessWidget {
   final String text;
 
-  const TextTitleBig({Key key, this.text}) : super(key: key);
+  const TextTitleBig({Key? key, required this.text}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

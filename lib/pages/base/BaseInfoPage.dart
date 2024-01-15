@@ -9,11 +9,11 @@ class BaseInfoPage extends StatelessWidget {
   final Widget content;
 
   const BaseInfoPage(
-      {Key key,
-      @required this.title,
-      @required this.mainImageAsset,
-      @required this.logoImageAsset,
-      @required this.content})
+      {Key? key,
+      required this.title,
+      required this.mainImageAsset,
+      required this.logoImageAsset,
+      required this.content})
       : super(key: key);
 
   @override

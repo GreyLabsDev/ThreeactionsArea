@@ -15,15 +15,15 @@ class MainPageInfoButton extends StatefulWidget {
   double logoPartsExtraPadding = 0.0;
 
   MainPageInfoButton(
-      {Key key,
-      @required this.number,
-      @required this.title,
-      @required this.bgImageAsset,
-      @required this.logoBaseImageAsset,
-      @required this.logoMovingPartImageAssetTop,
-      @required this.logoMovingPartImageAssetBottom,
-      @required this.onClickedAction,
-      this.logoPartsExtraPadding})
+      {Key? key,
+      required this.number,
+      required this.title,
+      required this.bgImageAsset,
+      required this.logoBaseImageAsset,
+      required this.logoMovingPartImageAssetTop,
+      required this.logoMovingPartImageAssetBottom,
+      required this.onClickedAction,
+      this.logoPartsExtraPadding = 0.0})
       : super(key: key);
 
   @override
@@ -43,8 +43,8 @@ class MainPageInfoButton extends StatefulWidget {
 
 class MainPageInfoButtonState extends State
     with SingleTickerProviderStateMixin {
-  AnimationController controller;
-  Animation opacityAcnimation;
+  late AnimationController controller;
+  late Animation opacityAcnimation;
   final GlobalKey<AnimatedLogoState> _logoStateKey = GlobalKey();
 
   final int number;
@@ -86,14 +86,14 @@ class MainPageInfoButtonState extends State
             onHover: (isHovered) {
               if (isHovered) {
                 _animateShow();
-                _logoStateKey.currentState.animate();
+                _logoStateKey.currentState?.animate();
               } else {
                 _animateHide();
-                _logoStateKey.currentState.animate();
+                _logoStateKey.currentState?.animate();
               }
             },
             child: InkWell(
-              onTap: onClickedAction,
+              onTap: () => onClickedAction(),
               child: Container(
                 decoration: BoxDecoration(
                     image: DecorationImage(
