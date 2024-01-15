@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class SocialButton extends StatelessWidget {
   final String imageUrl;
@@ -33,8 +33,8 @@ class SocialButton extends StatelessWidget {
   }
 
   void _handleRedirect(String redirectUrl) async {
-    if (await canLaunch(redirectUrl)) {
-      await launch(redirectUrl);
+    if (await canLaunchUrlString(redirectUrl)) {
+      await canLaunchUrlString(redirectUrl);
     }
   }
 }

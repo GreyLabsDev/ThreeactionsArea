@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:threeactions_area/resources/Resources.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class MusicServiceCard extends StatelessWidget {
   String title;
@@ -45,8 +45,8 @@ class MusicServiceCard extends StatelessWidget {
   }
 
   void _handleRedirect(String redirectUrl) async {
-    if (await canLaunch(redirectUrl)) {
-      await launch(redirectUrl);
+    if (await canLaunchUrlString(redirectUrl)) {
+      await launchUrlString(redirectUrl);
     }
   }
 }

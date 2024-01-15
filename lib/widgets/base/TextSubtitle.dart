@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-
 import '../../resources/Resources.dart';
 
 class TextSubtitle extends StatelessWidget {

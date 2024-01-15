@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:threeactions_area/widgets/base/TextTitle.dart';
 import 'package:threeactions_area/widgets/base/TextTitleBig.dart';
 
 class BaseInfoPage extends StatelessWidget {
