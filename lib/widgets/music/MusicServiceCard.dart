@@ -7,7 +7,7 @@ class MusicServiceCard extends StatelessWidget {
   String iconUrl;
   String redirectUrl;
 
-  MusicServiceCard({this.title, this.iconUrl, this.redirectUrl});
+  MusicServiceCard({required this.title, required this.iconUrl, required this.redirectUrl});
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +53,7 @@ class MusicServiceCard extends StatelessWidget {
 
 class MusicServiceLogo extends StatelessWidget {
   String imageUrl;
-  MusicServiceLogo({this.imageUrl});
+  MusicServiceLogo({required this.imageUrl});
   @override
   Widget build(BuildContext context) {
     return ClipRRect(

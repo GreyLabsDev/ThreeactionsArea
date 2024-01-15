@@ -6,9 +6,8 @@ class SocialButton extends StatelessWidget {
   final String redirectUrl;
   var enableStartPadding = true;
 
+  const SocialButton({Key? key, required this.imageUrl, required this.redirectUrl}) : super(key: key);
   double padding = 8.0;
-
-  SocialButton({Key key, this.imageUrl, this.redirectUrl, this.enableStartPadding = true}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

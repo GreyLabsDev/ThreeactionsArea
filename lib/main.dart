@@ -5,6 +5,7 @@ import 'package:threeactions_area/pages/base/BaseInfoPage.dart';
 import 'package:threeactions_area/widgets/base/TextTitle.dart';
 
 import 'pages/MusicReleasesPage.dart';
+import 'pages/TestPage.dart';
 
 void main() {
   runApp(MyApp());

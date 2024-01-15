@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class CoverArtCard extends StatelessWidget {
   String imageUrl;
-  CoverArtCard({this.imageUrl});
+  CoverArtCard({required this.imageUrl});
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
