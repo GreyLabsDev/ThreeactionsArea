@@ -117,7 +117,7 @@ class TestPageState extends State {
       mainImageAsset: "assets/img/button_bg_skills.png",
       logoImageAsset: "assets/img/logo_skills_big.png",
       content: TextSubtitle(
-        text: "Some content",
+        text: "Hard & Soft",
       ),
     );
   }
@@ -128,7 +128,7 @@ class TestPageState extends State {
       mainImageAsset: "assets/img/button_bg_bio.png",
       logoImageAsset: "assets/img/logo_bio_big.png",
       content: TextSubtitle(
-        text: "Some content",
+        text: "On Earth since 1994",
       ),
     );
   }
@@ -139,7 +139,7 @@ class TestPageState extends State {
       mainImageAsset: "assets/img/button_bg_art.png",
       logoImageAsset: "assets/img/logo_art_big.png",
       content: TextSubtitle(
-        text: "Some content",
+        text: "Yes, I'm creating art",
       ),
     );
   }
