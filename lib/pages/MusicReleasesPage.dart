@@ -24,7 +24,8 @@ class MusicReleasePageState extends State<MusicReleasePage> {
         Container(
           color: Colors.black45,
         ),
-        Center(
+        SizedBox.expand(
+          // alignment: Alignment.center,
             child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Column(
