@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:threeactions_area/pages/MusicReleasesPage.dart';
 import 'package:threeactions_area/pages/TestPage.dart';
 
 void main() {
@@ -10,7 +11,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Threeactions',
-      home: TestPage(),
+      home: MusicReleasePage(),
     );
   }
 }
