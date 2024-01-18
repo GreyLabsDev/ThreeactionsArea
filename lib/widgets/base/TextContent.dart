@@ -5,7 +5,7 @@ import '../../resources/Resources.dart';
 class TextContent extends StatelessWidget {
   final String text;
 
-  const TextContent({Key? key, required this.text}) : super(key: key);
+  const TextContent({super.key, required this.text});
 
   @override
   Widget build(BuildContext context) {

@@ -4,7 +4,7 @@ import 'package:threeactions_area/resources/Resources.dart';
 class TextTitle extends StatelessWidget {
   final String text;
 
-  const TextTitle({Key? key, required this.text}) : super(key: key);
+  const TextTitle({super.key, required this.text});
 
   @override
   Widget build(BuildContext context) {

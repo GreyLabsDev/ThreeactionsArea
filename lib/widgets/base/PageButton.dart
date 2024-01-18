@@ -12,15 +12,14 @@ class PageButton extends StatefulWidget {
   double logoPartsExtraPadding = 0.0;
 
   PageButton(
-      {Key? key,
+      {super.key,
       required this.number,
       required this.title,
       required this.bgImageAsset,
       required this.logoBaseImageAsset,
       required this.logoMovingPartImageAssetTop,
       required this.logoMovingPartImageAssetBottom,
-      this.logoPartsExtraPadding = 0.0})
-      : super(key: key);
+      this.logoPartsExtraPadding = 0.0});
 
   @override
   PageButtonState createState() {

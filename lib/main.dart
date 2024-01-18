@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:threeactions_area/pages/MusicReleasesPage.dart';
-import 'package:threeactions_area/pages/TestPage.dart';
 
 void main() {
   runApp(MyApp());

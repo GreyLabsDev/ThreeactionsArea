@@ -4,7 +4,7 @@ import '../../resources/Resources.dart';
 class TextSubtitle extends StatelessWidget {
   final String text;
 
-  const TextSubtitle({Key? key, required this.text}) : super(key: key);
+  const TextSubtitle({super.key, required this.text});
 
   @override
   Widget build(BuildContext context) {

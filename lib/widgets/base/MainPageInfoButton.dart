@@ -15,7 +15,7 @@ class MainPageInfoButton extends StatefulWidget {
   double logoPartsExtraPadding = 0.0;
 
   MainPageInfoButton(
-      {Key? key,
+      {super.key,
       required this.number,
       required this.title,
       required this.bgImageAsset,
@@ -23,8 +23,7 @@ class MainPageInfoButton extends StatefulWidget {
       required this.logoMovingPartImageAssetTop,
       required this.logoMovingPartImageAssetBottom,
       required this.onClickedAction,
-      this.logoPartsExtraPadding = 0.0})
-      : super(key: key);
+      this.logoPartsExtraPadding = 0.0});
 
   @override
   MainPageInfoButtonState createState() {
