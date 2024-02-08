@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:threeactions_area/pages/MusicReleasesPage.dart';
+import 'package:threeactions_area/widgets/base/ImageGallery.dart';
 import 'package:threeactions_area/widgets/base/SocialButton.dart';
 import 'package:threeactions_area/widgets/base/TextTitle.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -36,7 +37,7 @@ class MainPageState extends State<MainPage> {
               padding: EdgeInsets.all(32),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   TextTitle(text: "Sergey.Shr"),
                   SizedBox(

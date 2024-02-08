@@ -6,13 +6,15 @@ class BaseInfoPage extends StatelessWidget {
   final String mainImageAsset;
   final String logoImageAsset;
   final Widget content;
+  bool isScrollable;
 
-  const BaseInfoPage(
+  BaseInfoPage(
       {super.key,
       required this.title,
       required this.mainImageAsset,
       required this.logoImageAsset,
-      required this.content});
+      required this.content, 
+      this.isScrollable = true});
 
   @override
   Widget build(BuildContext context) {
@@ -48,17 +50,28 @@ class BaseInfoPage extends StatelessWidget {
           Expanded(
             child: Container(
               alignment: Alignment.topLeft,
-              child: SingleChildScrollView(
-                scrollDirection: Axis.vertical,
-                child: Padding(
-                  padding: EdgeInsets.all(32.0),
-                  child: content,
-                )
-              )
+              child: _buildContentContainer(content)
             ),
           )
         ],
       ),
     );
+  }
+
+  Widget _buildContentContainer(Widget content) {
+    if (isScrollable) {
+      return SingleChildScrollView(
+                scrollDirection: Axis.vertical,
+                child: Padding(
+                  padding: EdgeInsets.all(32.0),
+                  child: content,
+                )
+              );
+    } else {
+      return Padding(
+                  padding: EdgeInsets.all(32.0),
+                  child: content,
+                );
+    }
   }
 }

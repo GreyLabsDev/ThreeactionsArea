@@ -3,6 +3,7 @@ import 'package:threeactions_area/widgets/base/TextContent.dart';
 import 'package:threeactions_area/widgets/base/TextSubtitle.dart';
 import 'package:threeactions_area/widgets/base/TextTitle.dart';
 
+import '../widgets/base/ImageGallery.dart';
 import '../widgets/base/MainPageInfoButton.dart';
 import '../widgets/base/SocialButton.dart';
 import 'base/BaseInfoPage.dart';
@@ -138,9 +139,8 @@ class TestPageState extends State {
       title: "ART",
       mainImageAsset: "assets/img/button_bg_art.png",
       logoImageAsset: "assets/img/logo_art_big.png",
-      content: TextSubtitle(
-        text: "Yes, I'm creating art",
-      ),
+      isScrollable: false,
+      content: ImageGallery(),
     );
   }
 
