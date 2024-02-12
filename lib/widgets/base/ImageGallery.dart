@@ -29,12 +29,7 @@ class SimpleGalleryState extends State {
       }
 
       return Container(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            TextTitle(
-                text: "W: ${constraints.maxWidth} H: ${constraints.maxHeight}"),
-            Row(
+        child: Row(
               children: [
                 InkWell(
                   onTap: () {},
@@ -42,7 +37,7 @@ class SimpleGalleryState extends State {
                     _updateWidths(isHovered, 0);
                   },
                   child: AnimatedContainer(
-                    height: constraints.maxHeight - 48,
+                    height: constraints.maxHeight,
                     width: widthsList[0],
                     curve: Curves.fastOutSlowIn,
                     duration: Durations.medium4,
@@ -50,7 +45,7 @@ class SimpleGalleryState extends State {
                       "assets/img/button_bg_bio.png",
                       fit: BoxFit.cover,
                       height:
-                          constraints.maxHeight - 48, //48 - external padding
+                          constraints.maxHeight, //48 - external padding
                     ),
                   ),
                 ),
@@ -60,7 +55,7 @@ class SimpleGalleryState extends State {
                     _updateWidths(isHovered, 1);
                   },
                   child: AnimatedContainer(
-                    height: constraints.maxHeight - 48,
+                    height: constraints.maxHeight,
                     width: widthsList[1],
                     curve: Curves.fastOutSlowIn,
                     duration: Durations.medium4,
@@ -68,7 +63,7 @@ class SimpleGalleryState extends State {
                       "assets/img/button_bg_skills.png",
                       fit: BoxFit.cover,
                       height:
-                          constraints.maxHeight - 48, //48 - external padding
+                          constraints.maxHeight, //48 - external padding
                     ),
                   ),
                 ),
@@ -78,7 +73,7 @@ class SimpleGalleryState extends State {
                     _updateWidths(isHovered, 2);
                   },
                   child: AnimatedContainer(
-                    height: constraints.maxHeight - 48,
+                    height: constraints.maxHeight,
                     width: widthsList[2],
                     curve: Curves.fastOutSlowIn,
                     duration: Durations.medium4,
@@ -86,7 +81,7 @@ class SimpleGalleryState extends State {
                       "assets/img/button_bg_contacts.png",
                       fit: BoxFit.cover,
                       height:
-                          constraints.maxHeight - 48, //48 - external padding
+                          constraints.maxHeight, //48 - external padding
                     ),
                   ),
                 ),
@@ -96,7 +91,7 @@ class SimpleGalleryState extends State {
                     _updateWidths(isHovered, 3);
                   },
                   child: AnimatedContainer(
-                    height: constraints.maxHeight - 48,
+                    height: constraints.maxHeight,
                     width: widthsList[3],
                     curve: Curves.fastOutSlowIn,
                     duration: Durations.medium4,
@@ -104,14 +99,12 @@ class SimpleGalleryState extends State {
                       "assets/img/button_bg_art.png",
                       fit: BoxFit.cover,
                       height:
-                          constraints.maxHeight - 48, //48 - external padding
+                          constraints.maxHeight, //48 - external padding
                     ),
                   ),
                 ),
               ],
-            )
-          ],
-        ),
+            ),
       );
     });
   }

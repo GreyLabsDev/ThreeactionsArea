@@ -140,6 +140,7 @@ class TestPageState extends State {
       mainImageAsset: "assets/img/button_bg_art.png",
       logoImageAsset: "assets/img/logo_art_big.png",
       isScrollable: false,
+      isPaddingEnabled: false,
       content: ImageGallery(),
     );
   }

@@ -7,6 +7,7 @@ class BaseInfoPage extends StatelessWidget {
   final String logoImageAsset;
   final Widget content;
   bool isScrollable;
+  bool isPaddingEnabled;
 
   BaseInfoPage(
       {super.key,
@@ -14,7 +15,8 @@ class BaseInfoPage extends StatelessWidget {
       required this.mainImageAsset,
       required this.logoImageAsset,
       required this.content, 
-      this.isScrollable = true});
+      this.isScrollable = true,
+      this.isPaddingEnabled = true});
 
   @override
   Widget build(BuildContext context) {
@@ -62,16 +64,21 @@ class BaseInfoPage extends StatelessWidget {
     if (isScrollable) {
       return SingleChildScrollView(
                 scrollDirection: Axis.vertical,
-                child: Padding(
-                  padding: EdgeInsets.all(32.0),
-                  child: content,
-                )
+                child: _buildContentByPadding(content)
               );
     } else {
+      return _buildContentByPadding(content);
+    }
+  }
+
+  Widget _buildContentByPadding(Widget content) {
+    if (isPaddingEnabled) {
       return Padding(
                   padding: EdgeInsets.all(32.0),
                   child: content,
                 );
+    } else {
+      return content;
     }
   }
 }
