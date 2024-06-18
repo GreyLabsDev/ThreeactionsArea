@@ -41,7 +41,7 @@ class SimpleGalleryState extends State with TickerProviderStateMixin {
 
     for (final (index, item) in imagesResList.indexed) {
       controllers.add(
-        AnimationController(vsync: this, duration: Duration(milliseconds: 200))
+        AnimationController(vsync: this, duration: Duration(milliseconds: 300), animationBehavior: AnimationBehavior.normal)
           ..addListener(() {
             setState(() {});
           }),
@@ -66,7 +66,7 @@ class SimpleGalleryState extends State with TickerProviderStateMixin {
               height: constraints.maxHeight,
               width: widthsList[index],
               curve: Curves.fastOutSlowIn,
-              duration: Durations.medium4,
+              duration: Durations.long1,
               child: Stack(
                 fit: StackFit.expand,
                 children: [
@@ -148,8 +148,8 @@ class SimpleGalleryState extends State with TickerProviderStateMixin {
         hoveredIndex = -1;
         widthsList = imagesResList.map((e) => baseWidth).toList();
       }
-      print("HOVER $hoveredIndex");
-      print("WIDTHS $widthsList");
+      // print("HOVER $hoveredIndex");
+      // print("WIDTHS $widthsList");
     });
   }
 }
