@@ -2,6 +2,12 @@ import 'package:flutter/material.dart';
 
 class TextStylesContent {
 
+  static const ContentMin = TextStyle(
+      color: Color(0xffffffff),
+      fontSize: 16.0,
+      fontFamily: 'LackRegular',
+      letterSpacing: 1.0);
+
   static const Content = TextStyle(
       color: Color(0xffffffff),
       fontSize: 18.0,
