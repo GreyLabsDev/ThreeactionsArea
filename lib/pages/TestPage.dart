@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:threeactions_area/pages/UiTestPage.dart';
 import 'package:threeactions_area/widgets/base/TextContent.dart';
 import 'package:threeactions_area/widgets/base/TextSubtitle.dart';
 import 'package:threeactions_area/widgets/base/TextTitle.dart';
@@ -22,15 +23,21 @@ class TestPageState extends State {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SizedBox(height: 32.0,),
+            SizedBox(
+              height: 32.0,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                TextTitle(text: "S.SH - android developer - flutter enthusiast - speaker"),
+                TextTitle(
+                    text:
+                        "S.SH - android developer - flutter enthusiast - speaker"),
               ],
             ),
-            SizedBox(height: 32.0,),
+            SizedBox(
+              height: 32.0,
+            ),
             Expanded(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -45,54 +52,56 @@ class TestPageState extends State {
                         "assets/img/logo_skills_part.png",
                     logoMovingPartImageAssetBottom:
                         "assets/img/logo_skills_part.png",
-                    onClickedAction: () => _openInfoPage(context, _createSkillsInfoPage()),
+                    onClickedAction: () =>
+                        _openInfoPage(context, _createSkillsInfoPage()),
                   ),
                   VerticalDivider(
                     width: 2.0,
                     color: Colors.white,
                   ),
                   MainPageInfoButton(
-                    number: 2,
-                    title: "BIO",
-                    bgImageAsset: "assets/img/button_bg_bio.png",
-                    logoBaseImageAsset: "assets/img/logo_bio_base.png",
-                    logoMovingPartImageAssetTop: "assets/img/logo_bio_part.png",
-                    logoMovingPartImageAssetBottom:
-                        "assets/img/logo_bio_part.png",
-                    logoPartsExtraPadding: 28.0,
-                    onClickedAction: () => _openInfoPage(context, _createBioInfoPage())
-                  ),
+                      number: 2,
+                      title: "BIO",
+                      bgImageAsset: "assets/img/button_bg_bio.png",
+                      logoBaseImageAsset: "assets/img/logo_bio_base.png",
+                      logoMovingPartImageAssetTop:
+                          "assets/img/logo_bio_part.png",
+                      logoMovingPartImageAssetBottom:
+                          "assets/img/logo_bio_part.png",
+                      logoPartsExtraPadding: 28.0,
+                      onClickedAction: () =>
+                          _openInfoPage(context, _createBioInfoPage())),
                   VerticalDivider(
                     width: 2.0,
                     color: Colors.white,
                   ),
                   MainPageInfoButton(
-                    number: 3,
-                    title: "ART",
-                    bgImageAsset: "assets/img/button_bg_art.png",
-                    logoBaseImageAsset: "assets/img/logo_art_base.png",
-                    logoMovingPartImageAssetTop:
-                        "assets/img/logo_art_part_top.png",
-                    logoMovingPartImageAssetBottom:
-                        "assets/img/logo_art_part_bottom.png",
-                    onClickedAction: () => _openInfoPage(context, _createArtInfoPage())
-                  ),
+                      number: 3,
+                      title: "ART",
+                      bgImageAsset: "assets/img/button_bg_art.png",
+                      logoBaseImageAsset: "assets/img/logo_art_base.png",
+                      logoMovingPartImageAssetTop:
+                          "assets/img/logo_art_part_top.png",
+                      logoMovingPartImageAssetBottom:
+                          "assets/img/logo_art_part_bottom.png",
+                      onClickedAction: () =>
+                          _openInfoPage(context, _createArtInfoPage())),
                   VerticalDivider(
                     width: 2.0,
                     color: Colors.white,
                   ),
                   MainPageInfoButton(
-                    number: 4,
-                    title: "CNCT",
-                    bgImageAsset: "assets/img/button_bg_contacts.png",
-                    logoBaseImageAsset: "assets/img/logo_contacts_base.png",
-                    logoMovingPartImageAssetTop:
-                        "assets/img/logo_contacts_part_top.png",
-                    logoMovingPartImageAssetBottom:
-                        "assets/img/logo_contacts_part_bottom.png",
-                    logoPartsExtraPadding: 28.0,
-                    onClickedAction: () => _openInfoPage(context, _createContactInfoPage())
-                  ),
+                      number: 4,
+                      title: "CNCT",
+                      bgImageAsset: "assets/img/button_bg_contacts.png",
+                      logoBaseImageAsset: "assets/img/logo_contacts_base.png",
+                      logoMovingPartImageAssetTop:
+                          "assets/img/logo_contacts_part_top.png",
+                      logoMovingPartImageAssetBottom:
+                          "assets/img/logo_contacts_part_bottom.png",
+                      logoPartsExtraPadding: 28.0,
+                      onClickedAction: () =>
+                          _openInfoPage(context, _createContactInfoPage())),
                   VerticalDivider(
                     width: 2.0,
                     color: Colors.white,
@@ -117,8 +126,33 @@ class TestPageState extends State {
       title: "SKLS",
       mainImageAsset: "assets/img/button_bg_skills.png",
       logoImageAsset: "assets/img/logo_skills_big.png",
-      content: TextSubtitle(
-        text: "Hard & Soft",
+      content: Column(
+        children: [
+          Align(
+            alignment: Alignment.bottomLeft,
+            child: TextSubtitle(
+              text: "Hard & Soft",
+            ),
+          ),
+          SizedBox(height: 32.0),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              WorkExpTimeline(),
+              SkillsColumn([
+                SkillItem("Main", ["Android", "Kotlin", "Java", "Flutter"]),
+                SkillItem("UI", ["Jetpack Compose", "XML"]),
+                SkillItem(
+                    "Data", ["Realm", "Room", "SQL", "Retrofit", "GraphQL"]),
+                SkillItem(
+                    "Architecture", ["Clean", "MVP", "MVVM", "MVI", "Redux"]),
+                SkillItem("DI", ["Dagger 2", "Koin", "Hilt"]),
+                SkillItem("Async", ["RxJava 2", "Kotlin Coroutines", "Hilt"]),
+              ])
+            ],
+          )
+        ],
       ),
     );
   }
@@ -141,15 +175,28 @@ class TestPageState extends State {
       logoImageAsset: "assets/img/logo_art_big.png",
       isScrollable: false,
       isPaddingEnabled: false,
-      content: ImageGallery(
-        imagesResList: [
-          ImageModel(resourcePath: "assets/img/button_bg_bio.png", title: "Cube 1", description: "Description 1"), 
-          ImageModel(resourcePath: "assets/img/button_bg_skills.png", title: "Cube 2", description: "Description 2"), 
-          ImageModel(resourcePath: "assets/img/button_bg_contacts.png", title: "Cube 3", description: "Description 3"), 
-          ImageModel(resourcePath: "assets/img/button_bg_art.png", title: "Cube 4", description: "Description 4"), 
-          ImageModel(resourcePath: "assets/img/button_bg_bio.png", title: "Cube 5", description: "Description 5"), 
-          ]
-      ),
+      content: ImageGallery(imagesResList: [
+        ImageModel(
+            resourcePath: "assets/img/button_bg_bio.png",
+            title: "Cube 1",
+            description: "Description 1"),
+        ImageModel(
+            resourcePath: "assets/img/button_bg_skills.png",
+            title: "Cube 2",
+            description: "Description 2"),
+        ImageModel(
+            resourcePath: "assets/img/button_bg_contacts.png",
+            title: "Cube 3",
+            description: "Description 3"),
+        ImageModel(
+            resourcePath: "assets/img/button_bg_art.png",
+            title: "Cube 4",
+            description: "Description 4"),
+        ImageModel(
+            resourcePath: "assets/img/button_bg_bio.png",
+            title: "Cube 5",
+            description: "Description 5"),
+      ]),
     );
   }
 
@@ -162,14 +209,19 @@ class TestPageState extends State {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          TextContent(text: "Here you can find me",),
-          SizedBox(height: 8.0,),
+          TextContent(
+            text: "Here you can find me",
+          ),
+          SizedBox(
+            height: 8.0,
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SocialButton(
-                imageUrl: "https://static-00.iconduck.com/assets.00/gmail-icon-512x511-fih5xfbp.png",
+                imageUrl:
+                    "https://static-00.iconduck.com/assets.00/gmail-icon-512x511-fih5xfbp.png",
                 redirectUrl: "mailto:greyson.dean@email.com",
                 enableStartPadding: false,
               ),

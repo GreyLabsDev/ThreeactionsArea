@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'dart:core';
 
 import 'package:flutter/material.dart';
 import 'package:threeactions_area/pages/base/BaseInfoPage.dart';
@@ -22,7 +23,83 @@ class UiTestPageState extends State {
         title: "UiTestPage",
         mainImageAsset: "assets/img/button_bg_skills.png",
         logoImageAsset: "assets/img/logo_skills_big.png",
-        content: WorkExpTimeline());
+        content: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            WorkExpTimeline(),
+            SkillsColumn([
+              SkillItem("Main", ["Android", "Kotlin", "Java", "Flutter"]),
+              SkillItem("UI", ["Jetpack Compose", "XML"]),
+              SkillItem(
+                  "Data", ["Realm", "Room", "SQL", "Retrofit", "GraphQL"]),
+              SkillItem(
+                  "Architecture", ["Clean", "MVP", "MVVM", "MVI", "Redux"]),
+              SkillItem("DI", ["Dagger 2", "Koin", "Hilt"]),
+              SkillItem("Async", ["RxJava 2", "Kotlin Coroutines", "Hilt"]),
+            ])
+          ],
+        ));
+  }
+}
+
+class SkillItem {
+  String name;
+  List<String> skillsList;
+
+  SkillItem(this.name, this.skillsList);
+}
+
+class SkillsColumn extends StatelessWidget {
+  final List<SkillItem> items;
+
+  SkillsColumn(this.items);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.end,
+      children: _buildRowContent(),
+    );
+  }
+
+  List<Widget> _buildRowContent() {
+    return items.map((item) => SkillsBlock(item)).toList();
+  }
+}
+
+class SkillsBlock extends StatelessWidget {
+  final SkillItem item;
+
+  SkillsBlock(this.item);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.only(bottom: 8.0),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          TextSubtitle(text: item.name),
+          Wrap(
+            spacing: 4.0,
+            children: _buildWrapContent(item.skillsList),
+          )
+        ],
+      ),
+    );
+  }
+
+  List<Widget> _buildWrapContent(List<String> items) {
+    return items
+        .map((item) => Container(
+              padding: EdgeInsets.all(4.0),
+              color: Colors.blueGrey,
+              child: TextContent(text: item),
+            ))
+        .toList();
   }
 }
 
