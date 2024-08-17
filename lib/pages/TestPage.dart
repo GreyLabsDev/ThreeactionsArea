@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:threeactions_area/pages/UiTestPage.dart';
+import 'package:threeactions_area/resources/Resources.dart';
 import 'package:threeactions_area/widgets/base/TextContent.dart';
 import 'package:threeactions_area/widgets/base/TextSubtitle.dart';
 import 'package:threeactions_area/widgets/base/TextTitle.dart';
@@ -126,20 +127,14 @@ class TestPageState extends State {
       title: "SKLS",
       mainImageAsset: "assets/img/button_bg_skills.png",
       logoImageAsset: "assets/img/logo_skills_big.png",
-      content: Column(
-        children: [
-          Align(
-            alignment: Alignment.bottomLeft,
-            child: TextSubtitle(
-              text: "Hard & Soft",
-            ),
-          ),
-          SizedBox(height: 32.0),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+      subtitle: "Hard & Soft",
+      accentFilterColor: AppColors.ContentDarkBlue,
+      content: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               WorkExpTimeline(),
+              Spacer(),
               SkillsColumn([
                 SkillItem("Main", ["Android", "Kotlin", "Java", "Flutter"]),
                 SkillItem("UI", ["Jetpack Compose", "XML"]),
@@ -151,9 +146,7 @@ class TestPageState extends State {
                 SkillItem("Async", ["RxJava 2", "Kotlin Coroutines", "Hilt"]),
               ])
             ],
-          )
-        ],
-      ),
+          ),
     );
   }
 
@@ -162,8 +155,10 @@ class TestPageState extends State {
       title: "BIO",
       mainImageAsset: "assets/img/button_bg_bio.png",
       logoImageAsset: "assets/img/logo_bio_big.png",
+      accentFilterColor: AppColors.ContentLightBlue,
+      subtitle: "On Earth since 1994",
       content: TextSubtitle(
-        text: "On Earth since 1994",
+        text: "Content",
       ),
     );
   }
@@ -175,7 +170,10 @@ class TestPageState extends State {
       logoImageAsset: "assets/img/logo_art_big.png",
       isScrollable: false,
       isPaddingEnabled: false,
-      content: ImageGallery(imagesResList: [
+      accentFilterColor: AppColors.ContentLightYellow,
+      content: ImageGallery(
+        accentFilterColor: AppColors.ContentLightYellow,
+        imagesResList: [
         ImageModel(
             resourcePath: "assets/img/button_bg_bio.png",
             title: "Cube 1",
@@ -205,13 +203,12 @@ class TestPageState extends State {
       title: "CNCT",
       mainImageAsset: "assets/img/button_bg_contacts.png",
       logoImageAsset: "assets/img/logo_contacts_big.png",
+      accentFilterColor: AppColors.ContentLightRed,
+      subtitle: "Here you can find me",
       content: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          TextContent(
-            text: "Here you can find me",
-          ),
           SizedBox(
             height: 8.0,
           ),

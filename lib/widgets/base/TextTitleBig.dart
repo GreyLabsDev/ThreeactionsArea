@@ -3,13 +3,16 @@ import 'package:threeactions_area/resources/Resources.dart';
 
 class TextTitleBig extends StatelessWidget {
   final String text;
+  Color textColor = AppColors.ContentWhite;
 
-  const TextTitleBig({super.key, required this.text});
+  TextTitleBig({super.key, required this.text, this.textColor = AppColors.ContentWhite});
 
   @override
   Widget build(BuildContext context) {
     return (
-      Text(text, style: TextStylesContent.TitleBig)
+      Text(text, style: TextStylesContent.TitleBig.copyWith(
+        color: textColor
+      ))
     );
   }
 

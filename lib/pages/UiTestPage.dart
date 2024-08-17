@@ -3,6 +3,7 @@ import 'dart:core';
 
 import 'package:flutter/material.dart';
 import 'package:threeactions_area/pages/base/BaseInfoPage.dart';
+import 'package:threeactions_area/resources/Resources.dart';
 import 'package:threeactions_area/widgets/base/TextContent.dart';
 import 'package:threeactions_area/widgets/base/TextContentMin.dart';
 import 'package:threeactions_area/widgets/base/TextSubtitle.dart';
@@ -82,7 +83,7 @@ class SkillsBlock extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          TextSubtitle(text: item.name),
+          TextSubtitle(text: item.name, textColor: AppColors.ContentDarkBlue,),
           Wrap(
             spacing: 4.0,
             children: _buildWrapContent(item.skillsList),
@@ -97,7 +98,7 @@ class SkillsBlock extends StatelessWidget {
         .map((item) => Container(
               padding: EdgeInsets.all(4.0),
               color: Colors.blueGrey,
-              child: TextContent(text: item),
+              child: TextContent(text: item, textColor: Colors.black),
             ))
         .toList();
   }
@@ -113,7 +114,8 @@ class WorkExpTimeline extends StatelessWidget {
           Container(
             width: 16.0,
             height: 2.0,
-            color: Colors.white,
+            // color: Colors.white,
+            color: Color(0xff6EA1A9),
           ),
           SizedBox(
             width: 8.0,
@@ -122,9 +124,9 @@ class WorkExpTimeline extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              TextSubtitle(text: date),
-              TextContent(text: companyInfo),
-              TextContentMin(text: description)
+              TextSubtitle(text: date, textColor: AppColors.ContentDarkBlue,),
+              TextContent(text: companyInfo, textColor: AppColors.ContentDarkBlue),
+              TextContentMin(text: description, textColor: AppColors.ContentDarkBlue)
             ],
           )
         ],
@@ -141,7 +143,8 @@ class WorkExpTimeline extends StatelessWidget {
         children: [
           Container(
             width: 2.0,
-            color: Colors.white,
+            // color: Colors.white,
+            color: Color(0xff6EA1A9),
           ),
           Column(
             mainAxisAlignment: MainAxisAlignment.start,

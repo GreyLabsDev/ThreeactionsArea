@@ -4,14 +4,16 @@ import '../../resources/Resources.dart';
 
 class TextContentMin extends StatelessWidget {
   final String text;
+  Color textColor = AppColors.ContentWhite;
 
-  const TextContentMin({super.key, required this.text});
+  TextContentMin(
+      {super.key, required this.text, this.textColor = AppColors.ContentWhite});
 
   @override
   Widget build(BuildContext context) {
-    return (
-      Text(text, style: TextStylesContent.ContentMin,)
-    );
+    return (Text(
+      text,
+      style: TextStylesContent.ContentMin.copyWith(color: textColor),
+    ));
   }
-
 }

@@ -1,21 +1,43 @@
 import 'package:flutter/material.dart';
 
+class AppColors {
+  static const ContentWhite = Color(0xffffffff);
+  static const ContentDarkBlue = Color(0xff6EA1A9);
+  static const ContentLightYellow = Color(0xffFFFFB5);
+  static const ContentLightBlue = Color(0xff6BC5E3);
+  static const ContentLightRed = Color(0xffE6A8A1);
+}
 class TextStylesContent {
 
   static const ContentMin = TextStyle(
       color: Color(0xffffffff),
+      // color: Color(0xff6EA1A9),
       fontSize: 16.0,
       fontFamily: 'LackRegular',
       letterSpacing: 1.0);
 
   static const Content = TextStyle(
       color: Color(0xffffffff),
+      // color: Color(0xff6EA1A9),
+      fontSize: 18.0,
+      fontFamily: 'LackRegular',
+      letterSpacing: 1.0);
+
+  static const ContentMain = TextStyle(
+      color: Color(0xffffffff),
+      fontSize: 18.0,
+      fontFamily: 'LackRegular',
+      letterSpacing: 1.0);
+
+static const ContentBlck = TextStyle(
+      color: Colors.black,
       fontSize: 18.0,
       fontFamily: 'LackRegular',
       letterSpacing: 1.0);
 
   static const Subtitle = TextStyle(
       color: Color(0xffffffff),
+      // color: Color(0xff6EA1A9),
       fontSize: 26.0,
       fontFamily: 'LackRegular',
       letterSpacing: 1.0);
@@ -28,6 +50,7 @@ class TextStylesContent {
 
   static const TitleBig = TextStyle(
       color: Color(0xffffffff),
+      // color: Color(0xff6EA1A9),
       fontSize: 42.0,
       fontFamily: 'LackRegular',
       letterSpacing: 1.0);

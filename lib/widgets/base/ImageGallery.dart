@@ -1,5 +1,6 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
+import 'package:threeactions_area/resources/Resources.dart';
 import 'package:threeactions_area/widgets/base/TextTitle.dart';
 import 'package:threeactions_area/widgets/base/TextTitleBig.dart';
 
@@ -13,17 +14,19 @@ class ImageModel {
 
 class ImageGallery extends StatefulWidget {
   final List<ImageModel> imagesResList;
+  Color accentFilterColor = AppColors.ContentWhite;
 
-  const ImageGallery({super.key, required this.imagesResList});
+  ImageGallery({super.key, required this.imagesResList, this.accentFilterColor = AppColors.ContentWhite});
 
   @override
   State<StatefulWidget> createState() {
-    return SimpleGalleryState(imagesResList: imagesResList);
+    return SimpleGalleryState(imagesResList: imagesResList, accentFilterColor: accentFilterColor);
   }
 }
 
 class SimpleGalleryState extends State with TickerProviderStateMixin {
   final List<ImageModel> imagesResList;
+  final accentFilterColor;
 
   var widthsList = [];
   var hoveredIndex = -1;
@@ -33,7 +36,7 @@ class SimpleGalleryState extends State with TickerProviderStateMixin {
   List<AnimationController> controllers = [];
   List<Animation> opacityAcnimations = [];
 
-  SimpleGalleryState({required this.imagesResList});
+  SimpleGalleryState({required this.imagesResList, this.accentFilterColor});
 
   @override
   void initState() {
@@ -84,8 +87,8 @@ class SimpleGalleryState extends State with TickerProviderStateMixin {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Spacer(),
-                          TextTitleBig(text: imagesResList[index].title),
-                          TextTitle(text: imagesResList[index].description),
+                          TextTitleBig(text: imagesResList[index].title, textColor: accentFilterColor,),
+                          TextTitle(text: imagesResList[index].description, textColor: accentFilterColor,),
                           SizedBox(
                             height: 32.0,
                           )
