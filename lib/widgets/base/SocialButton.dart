@@ -34,7 +34,7 @@ class SocialButton extends StatelessWidget {
 
   void _handleRedirect(String redirectUrl) async {
     if (await canLaunchUrlString(redirectUrl)) {
-      await canLaunchUrlString(redirectUrl);
+      await launchUrlString(redirectUrl);
     }
   }
 }

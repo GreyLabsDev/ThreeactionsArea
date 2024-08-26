@@ -4,6 +4,7 @@ import 'package:threeactions_area/resources/Resources.dart';
 import 'package:threeactions_area/widgets/base/TextContent.dart';
 import 'package:threeactions_area/widgets/base/TextSubtitle.dart';
 import 'package:threeactions_area/widgets/base/TextTitle.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 import '../widgets/base/ImageGallery.dart';
 import '../widgets/base/MainPageInfoButton.dart';
@@ -173,27 +174,33 @@ class TestPageState extends State {
       accentFilterColor: AppColors.ContentLightYellow,
       content: ImageGallery(
         accentFilterColor: AppColors.ContentLightYellow,
+        onClickedAction: _handleRedirect,
         imagesResList: [
         ImageModel(
-            resourcePath: "assets/img/button_bg_bio.png",
-            title: "Cube 1",
-            description: "Description 1"),
+            resourcePath: "assets/img/img_gallery_1.jpg",
+            title: "Do you really want it?",
+            description: "Part of my favorite songs",
+            goToUrl: "https://www.artstation.com/artwork/G8NeGQ"),
         ImageModel(
-            resourcePath: "assets/img/button_bg_skills.png",
-            title: "Cube 2",
-            description: "Description 2"),
+            resourcePath: "assets/img/img_gallery_2.jpg",
+            title: "Feel nothing",
+            description: "Bad thoughts and this is its representation",
+            goToUrl: "https://www.artstation.com/artwork/NG60w5"),
         ImageModel(
-            resourcePath: "assets/img/button_bg_contacts.png",
-            title: "Cube 3",
-            description: "Description 3"),
+            resourcePath: "assets/img/img_gallery_3.jpg",
+            title: "Cube in cave",
+            description: "Experiment with volumetric lights",
+            goToUrl: "https://www.artstation.com/artwork/KOWeoo"),
         ImageModel(
-            resourcePath: "assets/img/button_bg_art.png",
-            title: "Cube 4",
-            description: "Description 4"),
+            resourcePath: "assets/img/img_gallery_4.jpg",
+            title: "Zero comfort zone",
+            description: "My first try with photoreal materials and light",
+            goToUrl: "https://www.artstation.com/artwork/yJVD5x"),
         ImageModel(
-            resourcePath: "assets/img/button_bg_bio.png",
-            title: "Cube 5",
-            description: "Description 5"),
+            resourcePath: "assets/img/img_gallery_5.jpg",
+            title: "Art for my track",
+            description: "Unusual environment with my music logo",
+            goToUrl: "https://www.artstation.com/artwork/r9VJ1J"),
       ]),
     );
   }
@@ -258,5 +265,13 @@ class TestPageState extends State {
         ],
       ),
     );
+  }
+
+  void _handleRedirect(String? redirectUrl) async {
+    if (redirectUrl == null) return;
+
+    if (await canLaunchUrlString(redirectUrl)) {
+      await launchUrlString(redirectUrl);
+    }
   }
 }

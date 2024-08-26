@@ -1,6 +1,9 @@
+import 'dart:developer';
+
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:threeactions_area/resources/Resources.dart';
+import 'package:threeactions_area/widgets/base/TextContent.dart';
 import 'package:threeactions_area/widgets/base/TextTitle.dart';
 import 'package:threeactions_area/widgets/base/TextTitleBig.dart';
 
@@ -8,24 +11,39 @@ class ImageModel {
   String resourcePath;
   String title;
   String description;
+  String? goToUrl = null;
 
-  ImageModel({required this.resourcePath, required this.title, required this.description});
+  ImageModel(
+      {required this.resourcePath,
+      required this.title,
+      required this.description,
+      this.goToUrl = null});
 }
 
 class ImageGallery extends StatefulWidget {
   final List<ImageModel> imagesResList;
+  final Function(String?) onClickedAction;
   Color accentFilterColor = AppColors.ContentWhite;
 
-  ImageGallery({super.key, required this.imagesResList, this.accentFilterColor = AppColors.ContentWhite});
+  ImageGallery({
+    super.key,
+    required this.imagesResList,
+    required this.onClickedAction,
+    this.accentFilterColor = AppColors.ContentWhite,
+  });
 
   @override
   State<StatefulWidget> createState() {
-    return SimpleGalleryState(imagesResList: imagesResList, accentFilterColor: accentFilterColor);
+    return SimpleGalleryState(
+        imagesResList: imagesResList,
+        accentFilterColor: accentFilterColor,
+        onClickedAction: onClickedAction);
   }
 }
 
 class SimpleGalleryState extends State with TickerProviderStateMixin {
   final List<ImageModel> imagesResList;
+  final Function(String?) onClickedAction;
   final accentFilterColor;
 
   var widthsList = [];
@@ -36,7 +54,10 @@ class SimpleGalleryState extends State with TickerProviderStateMixin {
   List<AnimationController> controllers = [];
   List<Animation> opacityAcnimations = [];
 
-  SimpleGalleryState({required this.imagesResList, this.accentFilterColor});
+  SimpleGalleryState(
+      {required this.imagesResList,
+      this.accentFilterColor,
+      required this.onClickedAction});
 
   @override
   void initState() {
@@ -44,7 +65,10 @@ class SimpleGalleryState extends State with TickerProviderStateMixin {
 
     for (final (index, item) in imagesResList.indexed) {
       controllers.add(
-        AnimationController(vsync: this, duration: Duration(milliseconds: 300), animationBehavior: AnimationBehavior.normal)
+        AnimationController(
+            vsync: this,
+            duration: Duration(milliseconds: 300),
+            animationBehavior: AnimationBehavior.normal)
           ..addListener(() {
             setState(() {});
           }),
@@ -57,8 +81,7 @@ class SimpleGalleryState extends State with TickerProviderStateMixin {
   List<Widget> _buildImageWidgets(BoxConstraints constraints) {
     List<Widget> widgets = [];
     imagesResList.forEachIndexed((index, element) {
-      widgets.add(
-        InkWell(
+      widgets.add(InkWell(
         onTap: () {},
         onHover: (isHovered) {
           _updateWidthsAndOpacity(isHovered, index);
@@ -70,41 +93,65 @@ class SimpleGalleryState extends State with TickerProviderStateMixin {
               width: widthsList[index],
               curve: Curves.fastOutSlowIn,
               duration: Durations.long1,
-              child: Stack(
-                fit: StackFit.expand,
-                children: [
-                  Image.asset(
-                    imagesResList[index].resourcePath,
-                    fit: BoxFit.cover,
-                    height: constraints.maxHeight, //48 - external padding
-                  ),
-                  Opacity(
-                    opacity: opacityAcnimations[index].value,
-                    child: Align(
-                      alignment: Alignment.bottomCenter,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Spacer(),
-                          TextTitleBig(text: imagesResList[index].title, textColor: accentFilterColor,),
-                          TextTitle(text: imagesResList[index].description, textColor: accentFilterColor,),
-                          SizedBox(
-                            height: 32.0,
-                          )
-                        ],
-                      ),
+              child: InkWell(
+                onTap: () {
+                  log("CLICK - url = ${imagesResList[index].goToUrl}");
+                  onClickedAction(imagesResList[index].goToUrl);
+                },
+                child: Stack(
+                  fit: StackFit.expand,
+                  children: [
+                    Image.asset(
+                      imagesResList[index].resourcePath,
+                      fit: BoxFit.cover,
+                      height: constraints.maxHeight, //48 - external padding
                     ),
-                  )
-                ],
+                    Opacity(
+                      opacity: opacityAcnimations[index].value,
+                      child: Align(
+                        alignment: Alignment.bottomCenter,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Spacer(),
+                            Container(
+                              color: AppColors.BgBlack45,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.stretch,
+                                children: [
+                                  SizedBox(
+                                    height: 16.0,
+                                  ),
+                                  TextTitle(
+                                    text: imagesResList[index].title,
+                                    textColor: accentFilterColor,
+                                    textAlign: TextAlign.center,
+                                  ),
+                                  TextContent(
+                                    text: imagesResList[index].description,
+                                    textColor: accentFilterColor,
+                                    textAlign: TextAlign.center,
+                                  ),
+                                  SizedBox(
+                                    height: 32.0,
+                                  )
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
           ],
         ),
-      )
-      );
+      ));
     });
-
 
     return widgets;
   }
@@ -151,8 +198,6 @@ class SimpleGalleryState extends State with TickerProviderStateMixin {
         hoveredIndex = -1;
         widthsList = imagesResList.map((e) => baseWidth).toList();
       }
-      // print("HOVER $hoveredIndex");
-      // print("WIDTHS $widthsList");
     });
   }
 }
