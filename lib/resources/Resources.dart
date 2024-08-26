@@ -15,52 +15,52 @@ class TextStylesContent {
       color: Color(0xffffffff),
       // color: Color(0xff6EA1A9),
       fontSize: 16.0,
-      fontFamily: 'LackRegular',
+      fontFamily: 'NohemiLight',
       letterSpacing: 1.0);
 
   static const Content = TextStyle(
       color: Color(0xffffffff),
       // color: Color(0xff6EA1A9),
       fontSize: 18.0,
-      fontFamily: 'LackRegular',
+      fontFamily: 'NohemiRegular',
       letterSpacing: 1.0);
 
   static const ContentMain = TextStyle(
       color: Color(0xffffffff),
       fontSize: 18.0,
-      fontFamily: 'LackRegular',
+      fontFamily: 'NohemiRegular',
       letterSpacing: 1.0);
 
 static const ContentBlck = TextStyle(
       color: Colors.black,
       fontSize: 18.0,
-      fontFamily: 'LackRegular',
+      fontFamily: 'NohemiRegular',
       letterSpacing: 1.0);
 
   static const Subtitle = TextStyle(
       color: Color(0xffffffff),
       // color: Color(0xff6EA1A9),
       fontSize: 26.0,
-      fontFamily: 'LackRegular',
+      fontFamily: 'NohemiMedium',
       letterSpacing: 1.0);
 
   static const Title = TextStyle(
       color: Color(0xffffffff),
       fontSize: 32.0,
-      fontFamily: 'LackRegular',
+      fontFamily: 'NohemiMedium',
       letterSpacing: 1.0);
 
   static const TitleBig = TextStyle(
       color: Color(0xffffffff),
       // color: Color(0xff6EA1A9),
       fontSize: 42.0,
-      fontFamily: 'LackRegular',
+      fontFamily: 'NohemiMedium',
       letterSpacing: 1.0);
 
   static const TitleBigLine = TextStyle(
       color: Color(0xffffffff),
       fontSize: 42.0,
-      fontFamily: 'LackRegularLine',
+      fontFamily: 'NohemiMedium',
       letterSpacing: 1.0);
 
 }

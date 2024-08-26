@@ -73,6 +73,18 @@ flutter:
       fonts:
         - asset: fonts/EBENYA.ttf
           weight: 700
+    - family: NohemiLight
+      fonts:
+        - asset: fonts/Nohemi-Light.ttf
+          weight: 300
+    - family: NohemiRegular
+      fonts:
+        - asset: fonts/Nohemi-Regular.ttf
+          weight: 400
+    - family: NohemiMedium
+      fonts:
+        - asset: fonts/Nohemi-Medium.ttf
+          weight: 500
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/img/button_bg_skills.png
