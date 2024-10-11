@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:threeactions_area/resources/Resources.dart';
+import 'package:threeactions_area/widgets/base/TextTitle.dart';
 import 'package:threeactions_area/widgets/base/TextTitleBig.dart';
 
 import '../../widgets/base/TextSubtitle.dart';
@@ -79,21 +80,20 @@ class BaseInfoPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Align(
-            alignment: Alignment.bottomLeft,
+            alignment: Alignment.bottomCenter,
             child: isPaddingEnabled
                 ? Padding(
-                    padding: EdgeInsets.only(left: 32.0, top: 32.0),
-                    child: TextSubtitle(
+                    padding: EdgeInsets.only(top: 32.0),
+                    child: TextTitle(
                       text: subtitle!,
                       textColor: accentFilterColor ?? AppColors.ContentWhite,
                     ),
                   )
-                : TextSubtitle(
+                : TextTitle(
                     text: subtitle!,
                     textColor: accentFilterColor ?? AppColors.ContentWhite,
                   ),
           ),
-          // SizedBox(height: 32.0),
           Flexible(child: _buildContentContainer(content))
         ],
       );

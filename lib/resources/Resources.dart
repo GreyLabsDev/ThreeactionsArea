@@ -25,6 +25,13 @@ class TextStylesContent {
       fontFamily: 'NohemiRegular',
       letterSpacing: 1.0);
 
+  static const ContentBig = TextStyle(
+      color: Color(0xffffffff),
+      // color: Color(0xff6EA1A9),
+      fontSize: 22.0,
+      fontFamily: 'NohemiRegular',
+      letterSpacing: 1.0);
+
   static const ContentMain = TextStyle(
       color: Color(0xffffffff),
       fontSize: 18.0,

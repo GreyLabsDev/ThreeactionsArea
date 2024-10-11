@@ -4,11 +4,14 @@ import 'package:threeactions_area/resources/Resources.dart';
 import 'package:threeactions_area/widgets/base/TextContent.dart';
 import 'package:threeactions_area/widgets/base/TextSubtitle.dart';
 import 'package:threeactions_area/widgets/base/TextTitle.dart';
+import 'package:threeactions_area/widgets/cv_elements/EventsBlock.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 import '../widgets/base/ImageGallery.dart';
 import '../widgets/base/MainPageInfoButton.dart';
+import '../widgets/base/SkillsColumn.dart';
 import '../widgets/base/SocialButton.dart';
+import '../widgets/cv_elements/WorkExpTimeline.dart';
 import 'base/BaseInfoPage.dart';
 
 class TestPage extends StatefulWidget {
@@ -130,24 +133,32 @@ class TestPageState extends State {
       logoImageAsset: "assets/img/logo_skills_big.png",
       subtitle: "Hard & Soft",
       accentFilterColor: AppColors.ContentDarkBlue,
-      content: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
+      content:Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          EventsBlock(titleColor: AppColors.ContentDarkBlue,),
+          SizedBox(height: 32.0,),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              WorkExpTimeline(),
-              Spacer(),
+              SizedBox(width: 60.0,),
               SkillsColumn([
                 SkillItem("Main", ["Android", "Kotlin", "Java", "Flutter"]),
                 SkillItem("UI", ["Jetpack Compose", "XML"]),
                 SkillItem(
-                    "Data", ["Realm", "Room", "SQL", "Retrofit", "GraphQL"]),
+                    "Data", ["Realm", "Room", "SQL", "Retrofit", "GraphQL", "JSON"]),
                 SkillItem(
                     "Architecture", ["Clean", "MVP", "MVVM", "MVI", "Redux"]),
                 SkillItem("DI", ["Dagger 2", "Koin", "Hilt"]),
                 SkillItem("Async", ["RxJava 2", "Kotlin Coroutines", "Hilt"]),
-              ])
+              ]),
+              SizedBox(width: 16.0,),
+              WorkExpTimeline(),
             ],
-          ),
+          )
+        ],
+      ),
     );
   }
 

@@ -100,7 +100,7 @@ class MainPageInfoButtonState extends State
                         fit: BoxFit.cover,
                         opacity: opacityAcnimation.value)),
                 padding: EdgeInsets.only(
-                    left: 32.0, right: 32.0, bottom: 96.0, top: 16.0),
+                    left: 32.0, right: 32.0, bottom: 218.0, top: 16.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
