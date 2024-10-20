@@ -142,16 +142,17 @@ class TestPageState extends State {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(width: 60.0,),
+              // SizedBox(width: 60.0,),
               SkillsColumn([
                 SkillItem("Main", ["Android", "Kotlin", "Java", "Flutter"]),
                 SkillItem("UI", ["Jetpack Compose", "XML"]),
                 SkillItem(
-                    "Data", ["Realm", "Room", "SQL", "Retrofit", "GraphQL", "JSON"]),
+                    "Data", ["Realm", "Room", "SQL", "Retrofit", "GraphQL", "JSON", "XML"]),
                 SkillItem(
-                    "Architecture", ["Clean", "MVP", "MVVM", "MVI", "Redux"]),
+                    "Architecture", ["Clean", "MVP", "MVVM", "MVI", "Redux", "Multi Module", "SDUI/BDUI"]),
                 SkillItem("DI", ["Dagger 2", "Koin", "Hilt"]),
-                SkillItem("Async", ["RxJava 2", "Kotlin Coroutines", "Hilt"]),
+                SkillItem("Async", ["RxJava 2", "Kotlin Coroutines", "Hilt", "Threads"]),
+                SkillItem("Other", ["Python", "Figma",]),
               ]),
               SizedBox(width: 16.0,),
               WorkExpTimeline(),
@@ -195,7 +196,7 @@ class TestPageState extends State {
         ImageModel(
             resourcePath: "assets/img/img_gallery_2.jpg",
             title: "Feel nothing",
-            description: "Bad thoughts and this is its representation",
+            description: "Testing new fog FX",
             goToUrl: "https://www.artstation.com/artwork/NG60w5"),
         ImageModel(
             resourcePath: "assets/img/img_gallery_3.jpg",
@@ -205,7 +206,7 @@ class TestPageState extends State {
         ImageModel(
             resourcePath: "assets/img/img_gallery_4.jpg",
             title: "Zero comfort zone",
-            description: "My first try with photoreal materials and light",
+            description: "My first try with photoreal render",
             goToUrl: "https://www.artstation.com/artwork/yJVD5x"),
         ImageModel(
             resourcePath: "assets/img/img_gallery_5.jpg",

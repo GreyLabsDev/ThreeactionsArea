@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:developer';
 
 import 'package:collection/collection.dart';
@@ -52,7 +53,8 @@ class SimpleGalleryState extends State with TickerProviderStateMixin {
   var lastMaxWidth = 0.0;
 
   List<AnimationController> controllers = [];
-  List<Animation> opacityAcnimations = [];
+  List<AnimationController> fadeControllers = [];
+  List<Animation<double>> opacityAcnimations = [];
 
   SimpleGalleryState(
       {required this.imagesResList,
@@ -73,8 +75,19 @@ class SimpleGalleryState extends State with TickerProviderStateMixin {
             setState(() {});
           }),
       );
+
+      fadeControllers.add(
+        AnimationController(
+            vsync: this,
+            duration: Duration(milliseconds: 500),
+            reverseDuration: Duration(milliseconds: 100),
+            animationBehavior: AnimationBehavior.normal)
+          ..addListener(() {
+            setState(() {});
+          }),
+      );
       opacityAcnimations
-          .add(Tween<double>(begin: 0.0, end: 1.0).animate(controllers[index]));
+          .add(Tween<double>(begin: 0.0, end: 1.0).animate(fadeControllers[index]));
     }
   }
 
@@ -116,30 +129,30 @@ class SimpleGalleryState extends State with TickerProviderStateMixin {
                           children: [
                             Spacer(),
                             Container(
-                              color: AppColors.BgBlack45,
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.stretch,
-                                children: [
-                                  SizedBox(
-                                    height: 16.0,
-                                  ),
-                                  TextTitle(
-                                    text: imagesResList[index].title,
-                                    textColor: accentFilterColor,
-                                    textAlign: TextAlign.center,
-                                  ),
-                                  TextContent(
-                                    text: imagesResList[index].description,
-                                    textColor: accentFilterColor,
-                                    textAlign: TextAlign.center,
-                                  ),
-                                  SizedBox(
-                                    height: 32.0,
-                                  )
-                                ],
-                              ),
-                            )
+                                color: AppColors.BgBlack45,
+                                child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.stretch,
+                                    children: [
+                                      SizedBox(
+                                        height: 16.0,
+                                      ),
+                                      TextTitle(
+                                        text: imagesResList[index].title,
+                                        textColor: accentFilterColor,
+                                        textAlign: TextAlign.center,
+                                      ),
+                                      TextContent(
+                                        text: imagesResList[index].description,
+                                        textColor: accentFilterColor,
+                                        textAlign: TextAlign.center,
+                                      ),
+                                      SizedBox(
+                                        height: 32.0,
+                                      )
+                                    ],
+                                  ))
                           ],
                         ),
                       ),
@@ -174,11 +187,18 @@ class SimpleGalleryState extends State with TickerProviderStateMixin {
     });
   }
 
+  Timer? delayedAppear = null;
+
   void _animateShow(int index) {
     controllers[index].forward();
+    delayedAppear = Timer(Duration(milliseconds: 300), () {
+      fadeControllers[index].forward();
+    });
   }
 
   void _animateHide(int index) {
+    delayedAppear?.cancel();
+    fadeControllers[index].reverse();
     controllers[index].reverse();
   }
 
