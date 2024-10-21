@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:threeactions_area/widgets/base/TextSubtitle.dart';
+import 'package:threeactions_area/widgets/base/TextTitle.dart';
 import 'package:threeactions_area/widgets/cv_elements/EventButton.dart';
 
 import '../base/TextContentBig.dart';
@@ -14,7 +16,7 @@ class EventsBlock extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            TextContentBig(text: "Speaking", textColor: titleColor,),
+            TextTitle(text: "Speaking", textColor: titleColor,),
             SizedBox(height: 16.0,),
             Wrap(
               spacing: 8.0,

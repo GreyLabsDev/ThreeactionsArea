@@ -1,5 +1,5 @@
+
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 import '../../resources/Resources.dart';
 import 'TextContent.dart';
@@ -21,7 +21,7 @@ class SkillsColumn extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.end,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: _buildRowContent(),
     );
   }
@@ -42,11 +42,12 @@ class SkillsBlock extends StatelessWidget {
       padding: EdgeInsets.only(bottom: 8.0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           TextSubtitle(text: item.name, textColor: AppColors.ContentDarkBlue,),
           Wrap(
             spacing: 4.0,
+            runSpacing: 4.0,
             children: _buildWrapContent(item.skillsList),
           )
         ],

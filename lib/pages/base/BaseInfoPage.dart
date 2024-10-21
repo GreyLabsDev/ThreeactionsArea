@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:threeactions_area/resources/Resources.dart';
 import 'package:threeactions_area/widgets/base/TextTitle.dart';
 import 'package:threeactions_area/widgets/base/TextTitleBig.dart';
-
-import '../../widgets/base/TextSubtitle.dart';
 
 class BaseInfoPage extends StatelessWidget {
   final String title;
@@ -29,6 +26,11 @@ class BaseInfoPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // TODO Adaptive feature - remove left-right side bg, 
+    // and set this image as vertical fullscreen bg with
+    // geometric logo on top (like in mobile version from Figma)
+    // but with more dimmed brightness
+
     return Scaffold(
       backgroundColor: Colors.black,
       body: Row(
@@ -36,7 +38,7 @@ class BaseInfoPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Container(
-            width: 380.0,
+            width: 256.0,
             padding: EdgeInsets.only(
                 left: 32.0, top: 32.0, right: 32.0, bottom: 96.0),
             decoration: BoxDecoration(
@@ -44,30 +46,74 @@ class BaseInfoPage extends StatelessWidget {
               image: AssetImage(mainImageAsset),
               fit: BoxFit.cover,
             )),
-            child: Stack(
-              children: [
-                Align(
+            child: Align(
                   alignment: Alignment.center,
                   child: accentFilterColor != null ? ColorFiltered(
                     colorFilter: ColorFilter.mode(accentFilterColor!, BlendMode.srcATop),
                     child: Image.asset(logoImageAsset),
                   ) :  Image.asset(logoImageAsset)
                 ),
-                Align(
-                  alignment: Alignment.bottomCenter,
-                  child: TextTitleBig(
-                    text: title,
-                    textColor: accentFilterColor ?? AppColors.ContentWhite,
-                  ),
-                )
-              ],
-            ),
+            // Stack(
+            //   children: [
+            //     Align(
+            //       alignment: Alignment.center,
+            //       child: accentFilterColor != null ? ColorFiltered(
+            //         colorFilter: ColorFilter.mode(accentFilterColor!, BlendMode.srcATop),
+            //         child: Image.asset(logoImageAsset),
+            //       ) :  Image.asset(logoImageAsset)
+            //     ),
+            //     Align(
+            //       alignment: Alignment.bottomCenter,
+            //       child: TextTitleBig(
+            //         text: title,
+            //         textColor: accentFilterColor ?? AppColors.ContentWhite,
+            //       ),
+            //     )
+            //   ],
+            // ),
           ),
           Expanded(
             child: Container(
                 alignment: Alignment.topLeft,
                 child: _buildMainContent(content)),
-          )
+          ),
+          Transform.flip(
+            flipX: true,
+            child: Container(
+              width: 256.0,
+              padding: EdgeInsets.only(
+                  left: 32.0, top: 32.0, right: 32.0, bottom: 96.0),
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                image: AssetImage(mainImageAsset),
+                fit: BoxFit.cover,
+              )),
+              child: Align(
+                  alignment: Alignment.center,
+                  child: accentFilterColor != null ? ColorFiltered(
+                    colorFilter: ColorFilter.mode(accentFilterColor!, BlendMode.srcATop),
+                    child: Image.asset(logoImageAsset),
+                  ) :  Image.asset(logoImageAsset)
+                )
+            //   Stack( children: [
+            //     Align(
+            //       alignment: Alignment.center,
+            //       child: accentFilterColor != null ? ColorFiltered(
+            //         colorFilter: ColorFilter.mode(accentFilterColor!, BlendMode.srcATop),
+            //         child: Image.asset(logoImageAsset),
+            //       ) :  Image.asset(logoImageAsset)
+            //     ),
+            //     Align(
+            //       alignment: Alignment.bottomCenter,
+            //       child: TextTitleBig(
+            //         text: title,
+            //         textColor: accentFilterColor ?? AppColors.ContentWhite,
+            //       ),
+            //     )
+            //   ],
+            // ),
+            ),
+          ),
         ],
       ),
     );
@@ -83,13 +129,13 @@ class BaseInfoPage extends StatelessWidget {
             alignment: Alignment.bottomCenter,
             child: isPaddingEnabled
                 ? Padding(
-                    padding: EdgeInsets.only(top: 32.0),
-                    child: TextTitle(
+                    padding: EdgeInsets.only(top: 64.0),
+                    child: TextTitleBig(
                       text: subtitle!,
                       textColor: accentFilterColor ?? AppColors.ContentWhite,
                     ),
                   )
-                : TextTitle(
+                : TextTitleBig(
                     text: subtitle!,
                     textColor: accentFilterColor ?? AppColors.ContentWhite,
                   ),

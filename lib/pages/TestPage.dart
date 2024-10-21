@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:threeactions_area/pages/UiTestPage.dart';
 import 'package:threeactions_area/resources/Resources.dart';
-import 'package:threeactions_area/widgets/base/TextContent.dart';
 import 'package:threeactions_area/widgets/base/TextSubtitle.dart';
 import 'package:threeactions_area/widgets/base/TextTitle.dart';
 import 'package:threeactions_area/widgets/cv_elements/EventsBlock.dart';
@@ -138,11 +136,16 @@ class TestPageState extends State {
         children: [
           EventsBlock(titleColor: AppColors.ContentDarkBlue,),
           SizedBox(height: 32.0,),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
+          TextTitle(text: "Work and skills", textColor: AppColors.ContentDarkBlue,),
+          SizedBox(height: 16.0,),
+          Wrap(
+            direction: Axis.horizontal,
+            alignment: WrapAlignment.center,
+            crossAxisAlignment: WrapCrossAlignment.center,
+            spacing: 16.0,
+            runSpacing: 16.0,
             children: [
-              // SizedBox(width: 60.0,),
+              WorkExpTimeline(),
               SkillsColumn([
                 SkillItem("Main", ["Android", "Kotlin", "Java", "Flutter"]),
                 SkillItem("UI", ["Jetpack Compose", "XML"]),
@@ -152,10 +155,9 @@ class TestPageState extends State {
                     "Architecture", ["Clean", "MVP", "MVVM", "MVI", "Redux", "Multi Module", "SDUI/BDUI"]),
                 SkillItem("DI", ["Dagger 2", "Koin", "Hilt"]),
                 SkillItem("Async", ["RxJava 2", "Kotlin Coroutines", "Hilt", "Threads"]),
+                SkillItem("Soft", ["Public Speaking", "Tech interviews", "Design/Tech review", "Teamwork","Feature leading",]),
                 SkillItem("Other", ["Python", "Figma",]),
-              ]),
-              SizedBox(width: 16.0,),
-              WorkExpTimeline(),
+              ]),              
             ],
           )
         ],

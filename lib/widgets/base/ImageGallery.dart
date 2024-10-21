@@ -12,13 +12,13 @@ class ImageModel {
   String resourcePath;
   String title;
   String description;
-  String? goToUrl = null;
+  String? goToUrl;
 
   ImageModel(
       {required this.resourcePath,
       required this.title,
       required this.description,
-      this.goToUrl = null});
+      this.goToUrl});
 }
 
 class ImageGallery extends StatefulWidget {
@@ -187,7 +187,7 @@ class SimpleGalleryState extends State with TickerProviderStateMixin {
     });
   }
 
-  Timer? delayedAppear = null;
+  Timer? delayedAppear;
 
   void _animateShow(int index) {
     controllers[index].forward();
