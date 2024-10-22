@@ -2,9 +2,7 @@ import 'dart:core';
 
 import 'package:flutter/material.dart';
 import 'package:threeactions_area/pages/base/BaseInfoPage.dart';
-import 'package:threeactions_area/resources/Resources.dart';
-
-import '../widgets/cv_elements/EventsBlock.dart';
+import '../widgets/bio_elements/BioInfoContent.dart';
 
 class UiTestpage extends StatefulWidget {
   @override
@@ -20,9 +18,15 @@ class UiTestPageState extends State {
         title: "UiTestPage",
         mainImageAsset: "assets/img/button_bg_skills.png",
         logoImageAsset: "assets/img/logo_skills_big.png",
-        content: EventsBlock(titleColor: AppColors.ContentDarkBlue,));
+        content: BioInfoContent(
+          data: [
+            BioInfoModel("assets/img/img_gallery_2.jpg", "title", "description"),
+            BioInfoModel("assets/img/img_gallery_2.jpg", "title", "description"),
+            BioInfoModel("assets/img/img_gallery_2.jpg", "title", "description"),
+            BioInfoModel("assets/img/img_gallery_2.jpg", "title", "description"),
+            BioInfoModel("assets/img/img_gallery_2.jpg", "title", "description"),
+          ],
+        )
+        );
   }
 }
-
-
-
