@@ -26,60 +26,61 @@ class BaseInfoPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO Adaptive feature - remove left-right side bg, 
+    // TODO Adaptive feature - remove left-right side bg,
     // and set this image as vertical fullscreen bg with
     // geometric logo on top (like in mobile version from Figma)
     // but with more dimmed brightness
 
     return Scaffold(
       backgroundColor: Colors.black,
-      body: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Container(
-            width: 256.0,
-            padding: EdgeInsets.only(
-                left: 32.0, top: 32.0, right: 32.0, bottom: 96.0),
-            decoration: BoxDecoration(
-                image: DecorationImage(
-              image: AssetImage(mainImageAsset),
+      body: _buildAdaptiveBody(title, mainImageAsset, logoImageAsset, content,
+          isScrollable, isPaddingEnabled, subtitle, accentFilterColor),
+    );
+  }
+
+  // // print("AHTUNG = ${constraints.maxWidth}"); 365 width triggering vertical layout
+
+  Widget _buildAdaptiveBody(
+      String title,
+      String mainImageAsset,
+      String logoImageAsset,
+      Widget content,
+      bool isScrollable,
+      bool isPaddingEnabled,
+      String? subtitle,
+      Color? accentFilterColorx) {
+    return LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints constraints) {
+      print("AHTUNG = ${constraints.maxWidth}");
+      bool isNeedToSwitchVertical = constraints.maxWidth <= 940;
+
+      if (isNeedToSwitchVertical) {
+        return Stack(
+          children: [
+            Image.asset(
+              mainImageAsset,
+              height: double.infinity,
+              width: double.infinity,
+              alignment: Alignment.center,
               fit: BoxFit.cover,
-            )),
-            child: Align(
-                  alignment: Alignment.center,
-                  child: accentFilterColor != null ? ColorFiltered(
-                    colorFilter: ColorFilter.mode(accentFilterColor!, BlendMode.srcATop),
-                    child: Image.asset(logoImageAsset),
-                  ) :  Image.asset(logoImageAsset)
-                ),
-            // Stack(
-            //   children: [
-            //     Align(
-            //       alignment: Alignment.center,
-            //       child: accentFilterColor != null ? ColorFiltered(
-            //         colorFilter: ColorFilter.mode(accentFilterColor!, BlendMode.srcATop),
-            //         child: Image.asset(logoImageAsset),
-            //       ) :  Image.asset(logoImageAsset)
-            //     ),
-            //     Align(
-            //       alignment: Alignment.bottomCenter,
-            //       child: TextTitleBig(
-            //         text: title,
-            //         textColor: accentFilterColor ?? AppColors.ContentWhite,
-            //       ),
-            //     )
-            //   ],
-            // ),
-          ),
-          Expanded(
-            child: Container(
-                alignment: Alignment.topLeft,
-                child: _buildMainContent(content)),
-          ),
-          Transform.flip(
-            flipX: true,
-            child: Container(
+              color: Colors.black54,
+              colorBlendMode: BlendMode.darken,
+            ),
+            _buildMainContent(content)
+          ],
+          // decoration: BoxDecoration(
+          //       image: DecorationImage(
+          //     image: AssetImage(mainImageAsset),
+          //     fit: BoxFit.cover,
+          //   )),
+          //   child: TextTitle(text: "VERTICAL"),
+        );
+      } else {
+        return Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Container(
               width: 256.0,
               padding: EdgeInsets.only(
                   left: 32.0, top: 32.0, right: 32.0, bottom: 96.0),
@@ -90,33 +91,80 @@ class BaseInfoPage extends StatelessWidget {
               )),
               child: Align(
                   alignment: Alignment.center,
-                  child: accentFilterColor != null ? ColorFiltered(
-                    colorFilter: ColorFilter.mode(accentFilterColor!, BlendMode.srcATop),
-                    child: Image.asset(logoImageAsset),
-                  ) :  Image.asset(logoImageAsset)
-                )
-            //   Stack( children: [
-            //     Align(
-            //       alignment: Alignment.center,
-            //       child: accentFilterColor != null ? ColorFiltered(
-            //         colorFilter: ColorFilter.mode(accentFilterColor!, BlendMode.srcATop),
-            //         child: Image.asset(logoImageAsset),
-            //       ) :  Image.asset(logoImageAsset)
-            //     ),
-            //     Align(
-            //       alignment: Alignment.bottomCenter,
-            //       child: TextTitleBig(
-            //         text: title,
-            //         textColor: accentFilterColor ?? AppColors.ContentWhite,
-            //       ),
-            //     )
-            //   ],
-            // ),
+                  child: accentFilterColor != null
+                      ? ColorFiltered(
+                          colorFilter: ColorFilter.mode(
+                              accentFilterColor!, BlendMode.srcATop),
+                          child: Image.asset(logoImageAsset),
+                        )
+                      : Image.asset(logoImageAsset)),
+              // Stack(
+              //   children: [
+              //     Align(
+              //       alignment: Alignment.center,
+              //       child: accentFilterColor != null ? ColorFiltered(
+              //         colorFilter: ColorFilter.mode(accentFilterColor!, BlendMode.srcATop),
+              //         child: Image.asset(logoImageAsset),
+              //       ) :  Image.asset(logoImageAsset)
+              //     ),
+              //     Align(
+              //       alignment: Alignment.bottomCenter,
+              //       child: TextTitleBig(
+              //         text: title,
+              //         textColor: accentFilterColor ?? AppColors.ContentWhite,
+              //       ),
+              //     )
+              //   ],
+              // ),
             ),
-          ),
-        ],
-      ),
-    );
+            Expanded(
+              child: Container(
+                  alignment: Alignment.topLeft,
+                  child: _buildMainContent(content)),
+            ),
+            Transform.flip(
+              flipX: true,
+              child: Container(
+                  width: 256.0,
+                  padding: EdgeInsets.only(
+                      left: 32.0, top: 32.0, right: 32.0, bottom: 96.0),
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                    image: AssetImage(mainImageAsset),
+                    fit: BoxFit.cover,
+                  )),
+                  child: Align(
+                      alignment: Alignment.center,
+                      child: accentFilterColor != null
+                          ? ColorFiltered(
+                              colorFilter: ColorFilter.mode(
+                                  accentFilterColor!, BlendMode.srcATop),
+                              child: Image.asset(logoImageAsset),
+                            )
+                          : Image.asset(logoImageAsset))
+                  //   Stack( children: [
+                  //     Align(
+                  //       alignment: Alignment.center,
+                  //       child: accentFilterColor != null ? ColorFiltered(
+                  //         colorFilter: ColorFilter.mode(accentFilterColor!, BlendMode.srcATop),
+                  //         child: Image.asset(logoImageAsset),
+                  //       ) :  Image.asset(logoImageAsset)
+                  //     ),
+                  //     Align(
+                  //       alignment: Alignment.bottomCenter,
+                  //       child: TextTitleBig(
+                  //         text: title,
+                  //         textColor: accentFilterColor ?? AppColors.ContentWhite,
+                  //       ),
+                  //     )
+                  //   ],
+                  // ),
+                  ),
+            ),
+          ],
+        );
+      }
+    });
   }
 
   Widget _buildMainContent(Widget content) {

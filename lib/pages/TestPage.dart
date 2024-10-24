@@ -9,6 +9,7 @@ import '../widgets/base/ImageGallery.dart';
 import '../widgets/base/MainPageInfoButton.dart';
 import '../widgets/base/SkillsColumn.dart';
 import '../widgets/base/SocialButton.dart';
+import '../widgets/bio_elements/BioInfoContent.dart';
 import '../widgets/cv_elements/WorkExpTimeline.dart';
 import 'base/BaseInfoPage.dart';
 
@@ -172,9 +173,16 @@ class TestPageState extends State {
       logoImageAsset: "assets/img/logo_bio_big.png",
       accentFilterColor: AppColors.ContentLightBlue,
       subtitle: "On Earth since 1994",
-      content: TextSubtitle(
-        text: "Content",
-      ),
+      content: BioInfoContent(
+        accentFilterColor: AppColors.ContentLightBlue,
+          data: [
+            BioInfoModel("assets/img/img_bio_sport.jpg", "Bachelor's degree", "Information security, sofware/hardware system integration"),
+            BioInfoModel("assets/img/img_bio_hobby.jpg", "Master's degree", "Software engineering, app architecture, distributed apps"),
+            BioInfoModel("assets/img/img_bio_sport.jpg", "Sport", "Swimming, long walks, airsoft trainings and local games with friends"),
+            BioInfoModel("assets/img/img_bio_hobby.jpg", "Hobby", "Music production, 3D Art, Pet projects, gaming"),
+            BioInfoModel("assets/img/img_bio_sport.jpg", "Last read book", "Blood, Sweat, and Pixels"),
+          ],
+        ),
     );
   }
 
