@@ -233,7 +233,7 @@ class TestPageState extends State {
       mainImageAsset: "assets/img/button_bg_contacts.png",
       logoImageAsset: "assets/img/logo_contacts_big.png",
       accentFilterColor: AppColors.ContentLightRed,
-      subtitle: "Here you can find me",
+      subtitle: "Find me here",
       content: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,

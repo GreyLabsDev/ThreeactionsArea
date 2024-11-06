@@ -66,7 +66,7 @@ class BaseInfoPage extends StatelessWidget {
               color: Colors.black54,
               colorBlendMode: BlendMode.darken,
             ),
-            _buildMainContent(content)
+            _buildMainContent(content, isNeedToSwitchVertical)
           ],
           // decoration: BoxDecoration(
           //       image: DecorationImage(
@@ -120,7 +120,7 @@ class BaseInfoPage extends StatelessWidget {
             Expanded(
               child: Container(
                   alignment: Alignment.topLeft,
-                  child: _buildMainContent(content)),
+                  child: _buildMainContent(content, isNeedToSwitchVertical)),
             ),
             Transform.flip(
               flipX: true,
@@ -167,17 +167,54 @@ class BaseInfoPage extends StatelessWidget {
     });
   }
 
-  Widget _buildMainContent(Widget content) {
-    if (subtitle != null) {
-      return Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: isPaddingEnabled
+  Widget _buildAdaptiveSubtitle(
+      bool isPaddingEnabled,
+      bool isNeedToSwitchVertical,
+      String logoImageAsset,
+      Color? accentFilterColor) {
+
+    Widget bgImage = Padding(
+      padding: EdgeInsets.all(16.0),
+      child: Opacity(
+        opacity: 0.7,
+        child: Image.asset(
+          logoImageAsset,
+          height: 160.0,
+        ),
+      ),
+    );
+
+    return Align(
+        alignment: Alignment.bottomCenter,
+        child: isNeedToSwitchVertical ? Stack(
+          alignment: AlignmentDirectional.center,
+          children: [
+            RotatedBox(
+              quarterTurns: 1,
+              child: accentFilterColor != null
+                  ? ColorFiltered(
+                      colorFilter: ColorFilter.mode(
+                          accentFilterColor, BlendMode.srcATop),
+                      child: bgImage,
+                    )
+                  : bgImage,
+            ),
+            isPaddingEnabled
                 ? Padding(
-                    padding: EdgeInsets.only(top: 64.0),
+                    padding: EdgeInsets.only(top: 18.0, bottom: 18.0),
+                    child: TextTitle(
+                      text: subtitle!,
+                      textColor: accentFilterColor ?? AppColors.ContentWhite,
+                    ),
+                  )
+                : TextTitle(
+                    text: subtitle!,
+                    textColor: accentFilterColor ?? AppColors.ContentWhite,
+                  ),
+          ],
+        ) : isPaddingEnabled
+                ? Padding(
+                    padding: EdgeInsets.only(top: 18.0, bottom: 18.0),
                     child: TextTitleBig(
                       text: subtitle!,
                       textColor: accentFilterColor ?? AppColors.ContentWhite,
@@ -186,8 +223,17 @@ class BaseInfoPage extends StatelessWidget {
                 : TextTitleBig(
                     text: subtitle!,
                     textColor: accentFilterColor ?? AppColors.ContentWhite,
-                  ),
-          ),
+                  ),);
+  }
+
+  Widget _buildMainContent(Widget content, bool isNeedToSwitchVertical) {
+    if (subtitle != null) {
+      return Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          _buildAdaptiveSubtitle(isPaddingEnabled, isNeedToSwitchVertical,
+              logoImageAsset, accentFilterColor),
           Flexible(child: _buildContentContainer(content))
         ],
       );
