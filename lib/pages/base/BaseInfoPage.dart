@@ -26,11 +26,6 @@ class BaseInfoPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO Adaptive feature - remove left-right side bg,
-    // and set this image as vertical fullscreen bg with
-    // geometric logo on top (like in mobile version from Figma)
-    // but with more dimmed brightness
-
     return Scaffold(
       backgroundColor: Colors.black,
       body: _buildAdaptiveBody(title, mainImageAsset, logoImageAsset, content,
@@ -50,11 +45,11 @@ class BaseInfoPage extends StatelessWidget {
       String? subtitle,
       Color? accentFilterColorx) {
     return LayoutBuilder(
-        builder: (BuildContext context, BoxConstraints constraints) {
-      print("AHTUNG = ${constraints.maxWidth}");
-      bool isNeedToSwitchVertical = constraints.maxWidth <= 940;
+      builder: (BuildContext context, BoxConstraints constraints) {
+      bool isNeedToSwitchVertical = constraints.maxWidth <= 990;
 
       if (isNeedToSwitchVertical) {
+        print("Changed to vertical");
         return Stack(
           children: [
             Image.asset(
@@ -68,12 +63,6 @@ class BaseInfoPage extends StatelessWidget {
             ),
             _buildMainContent(content, isNeedToSwitchVertical)
           ],
-          // decoration: BoxDecoration(
-          //       image: DecorationImage(
-          //     image: AssetImage(mainImageAsset),
-          //     fit: BoxFit.cover,
-          //   )),
-          //   child: TextTitle(text: "VERTICAL"),
         );
       } else {
         return Row(
@@ -81,7 +70,7 @@ class BaseInfoPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
-              width: 256.0,
+              width: 200.0,
               padding: EdgeInsets.only(
                   left: 32.0, top: 32.0, right: 32.0, bottom: 96.0),
               decoration: BoxDecoration(
@@ -98,26 +87,9 @@ class BaseInfoPage extends StatelessWidget {
                           child: Image.asset(logoImageAsset),
                         )
                       : Image.asset(logoImageAsset)),
-              // Stack(
-              //   children: [
-              //     Align(
-              //       alignment: Alignment.center,
-              //       child: accentFilterColor != null ? ColorFiltered(
-              //         colorFilter: ColorFilter.mode(accentFilterColor!, BlendMode.srcATop),
-              //         child: Image.asset(logoImageAsset),
-              //       ) :  Image.asset(logoImageAsset)
-              //     ),
-              //     Align(
-              //       alignment: Alignment.bottomCenter,
-              //       child: TextTitleBig(
-              //         text: title,
-              //         textColor: accentFilterColor ?? AppColors.ContentWhite,
-              //       ),
-              //     )
-              //   ],
-              // ),
             ),
-            Expanded(
+            Flexible(
+              flex: 1,
               child: Container(
                   alignment: Alignment.topLeft,
                   child: _buildMainContent(content, isNeedToSwitchVertical)),
@@ -125,7 +97,7 @@ class BaseInfoPage extends StatelessWidget {
             Transform.flip(
               flipX: true,
               child: Container(
-                  width: 256.0,
+                  width: 200.0,
                   padding: EdgeInsets.only(
                       left: 32.0, top: 32.0, right: 32.0, bottom: 96.0),
                   decoration: BoxDecoration(
@@ -142,23 +114,6 @@ class BaseInfoPage extends StatelessWidget {
                               child: Image.asset(logoImageAsset),
                             )
                           : Image.asset(logoImageAsset))
-                  //   Stack( children: [
-                  //     Align(
-                  //       alignment: Alignment.center,
-                  //       child: accentFilterColor != null ? ColorFiltered(
-                  //         colorFilter: ColorFilter.mode(accentFilterColor!, BlendMode.srcATop),
-                  //         child: Image.asset(logoImageAsset),
-                  //       ) :  Image.asset(logoImageAsset)
-                  //     ),
-                  //     Align(
-                  //       alignment: Alignment.bottomCenter,
-                  //       child: TextTitleBig(
-                  //         text: title,
-                  //         textColor: accentFilterColor ?? AppColors.ContentWhite,
-                  //       ),
-                  //     )
-                  //   ],
-                  // ),
                   ),
             ),
           ],

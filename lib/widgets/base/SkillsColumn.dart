@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import '../../resources/Resources.dart';
@@ -14,8 +13,9 @@ class SkillItem {
 
 class SkillsColumn extends StatelessWidget {
   final List<SkillItem> items;
+  final double leftPadding;
 
-  SkillsColumn(this.items);
+  SkillsColumn(this.items, this.leftPadding);
 
   @override
   Widget build(BuildContext context) {
@@ -27,29 +27,34 @@ class SkillsColumn extends StatelessWidget {
   }
 
   List<Widget> _buildRowContent() {
-    return items.map((item) => SkillsBlock(item)).toList();
+    return items.map((item) => SkillsBlock(item, leftPadding)).toList();
   }
 }
 
 class SkillsBlock extends StatelessWidget {
   final SkillItem item;
+  final double leftPadding;
 
-  SkillsBlock(this.item);
+  SkillsBlock(this.item, this.leftPadding);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(bottom: 8.0),
+      padding: EdgeInsets.only(bottom: 8.0, left: leftPadding),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          TextSubtitle(text: item.name, textColor: AppColors.ContentDarkBlue,),
+          TextSubtitle(
+            text: item.name,
+            textColor: AppColors.ContentDarkBlue,
+          ),
           Wrap(
-            spacing: 4.0,
-            runSpacing: 4.0,
-            children: _buildWrapContent(item.skillsList),
-          )
+              spacing: 4.0,
+              runSpacing: 4.0,
+              textDirection: TextDirection.ltr,
+              children: _buildWrapContent(item.skillsList),
+            ),
         ],
       ),
     );

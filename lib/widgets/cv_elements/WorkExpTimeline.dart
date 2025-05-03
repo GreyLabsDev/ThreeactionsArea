@@ -64,17 +64,17 @@ class WorkExpTimeline extends StatelessWidget {
           children: [
             _buildExpItem(
                 "2021 - Current time",
-                "Skyeng - Senior Android Developer",
+                "Skyeng\nSenior Android Developer",
                 "EdTech (educational technology),\ninternational language learning projects"),
             _buildExpItem(
                 "2019-2021",
-                "Home Credit Bank - Middle Android Developer",
+                "Home Credit Bank\nMiddle Android Developer",
                 "FinTech (financial technology), private\nbanking, marketplace, loan projects"),
-            _buildExpItem("2018-2019", "EastWind - Android Developer",
+            _buildExpItem("2018-2019", "EastWind\nAndroid Developer",
                 "Custom development, projects in\nbanking, services and marketplaces"),
-            _buildExpItem("2018", "ARGIN - Android Developer",
+            _buildExpItem("2018", "ARGIN\nAndroid Developer",
                 "Augmented reality projects, video/image\ntracking"),
-            _buildExpItem("2016-2018", "HOSTCO - Information Security Analyst",
+            _buildExpItem("2016-2018", "HOSTCO\nInformation Security Analyst",
                 "Audit and integration of security\nsystems in IT companies"),
           ],
         ),

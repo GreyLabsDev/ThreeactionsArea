@@ -131,39 +131,146 @@ class TestPageState extends State {
       mainImageAsset: "assets/img/button_bg_skills.png",
       logoImageAsset: "assets/img/logo_skills_big.png",
       subtitle: "Hard & Soft",
+      isPaddingEnabled: false,
       accentFilterColor: AppColors.ContentDarkBlue,
-      content:Column(
+      content: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          EventsBlock(titleColor: AppColors.ContentDarkBlue,),
-          SizedBox(height: 32.0,),
-          TextTitle(text: "Work and skills", textColor: AppColors.ContentDarkBlue,),
-          SizedBox(height: 16.0,),
-          Wrap(
-            direction: Axis.horizontal,
-            alignment: WrapAlignment.center,
-            crossAxisAlignment: WrapCrossAlignment.center,
-            spacing: 16.0,
-            runSpacing: 16.0,
-            children: [
-              WorkExpTimeline(),
-              SkillsColumn([
-                SkillItem("Main", ["Android", "Kotlin", "Java", "Flutter"]),
-                SkillItem("UI", ["Jetpack Compose", "XML"]),
-                SkillItem(
-                    "Data", ["Realm", "Room", "SQL", "Retrofit", "GraphQL", "JSON", "XML"]),
-                SkillItem(
-                    "Architecture", ["Clean", "MVP", "MVVM", "MVI", "Redux", "Multi Module", "SDUI/BDUI"]),
-                SkillItem("DI", ["Dagger 2", "Koin", "Hilt"]),
-                SkillItem("Async", ["RxJava 2", "Kotlin Coroutines", "Hilt", "Threads"]),
-                SkillItem("Soft", ["Public Speaking", "Tech interviews", "Design/Tech review", "Teamwork","Feature leading",]),
-                SkillItem("Other", ["Python", "Figma",]),
-              ]),              
-            ],
-          )
+          EventsBlock(
+            titleColor: AppColors.ContentDarkBlue,
+          ),
+          SizedBox(
+            height: 32.0,
+          ),
+          TextTitle(
+            text: "Work and skills",
+            textColor: AppColors.ContentDarkBlue,
+          ),
+          SizedBox(
+            height: 16.0,
+          ),
+          _buildAdaptiveSkillTable(true)
         ],
       ),
     );
+  }
+
+  Widget _buildAdaptiveSkillTable(bool useRow) {
+    return LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints constraints) {
+          bool useDefaultRow = constraints.maxWidth >= 770;
+            if (useDefaultRow) {
+      return Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Flexible(
+                flex: 1,
+                fit: FlexFit.tight,
+                child: WorkExpTimeline(),
+              ),
+              Flexible(
+                flex: 1,
+                fit: FlexFit.tight,
+                child: SkillsColumn([
+                  SkillItem("Main", ["Android", "Kotlin", "Java", "Flutter"]),
+                  SkillItem("UI", ["Jetpack Compose", "XML"]),
+                  SkillItem("Data", [
+                    "Realm",
+                    "Room",
+                    "SQL",
+                    "Retrofit",
+                    "GraphQL",
+                    "JSON",
+                    "XML"
+                  ]),
+                  SkillItem("Architecture", [
+                    "Clean",
+                    "MVP",
+                    "MVVM",
+                    "MVI",
+                    "Redux",
+                    "Multi Module",
+                    "SDUI/BDUI"
+                  ]),
+                  SkillItem("DI", ["Dagger 2", "Koin", "Hilt"]),
+                  SkillItem(
+                      "Async", ["RxJava 2", "Kotlin Coroutines", "Threads"]),
+                  SkillItem("Soft", [
+                    "Public Speaking",
+                    "Tech interviews",
+                    "Design/Tech review",
+                    "Teamwork",
+                    "Feature leading",
+                  ]),
+                  SkillItem("Other", [
+                    "Python",
+                    "Figma",
+                  ]),
+                ], 16.0),
+              )
+            ],
+          );
+    } else {
+      return Wrap(
+            direction: Axis.horizontal,
+            alignment: WrapAlignment.center,
+
+            spacing: 16.0,
+            runSpacing: 16.0,
+            children: [
+              Flexible(
+                flex: 1,
+                fit: FlexFit.tight,
+                child: WorkExpTimeline(),
+              ),
+              
+              Flexible(
+                flex: 2,
+                fit: FlexFit.loose,
+                child: SkillsColumn([
+                  SkillItem("Main", ["Android", "Kotlin", "Java", "Flutter"]),
+                  SkillItem("UI", ["Jetpack Compose", "XML"]),
+                  SkillItem("Data", [
+                    "Realm",
+                    "Room",
+                    "SQL",
+                    "Retrofit",
+                    "GraphQL",
+                    "JSON",
+                    "XML"
+                  ]),
+                  SkillItem("Architecture", [
+                    "Clean",
+                    "MVP",
+                    "MVVM",
+                    "MVI",
+                    "Redux",
+                    "Multi Module",
+                    "SDUI/BDUI"
+                  ]),
+                  SkillItem("DI", ["Dagger 2", "Koin", "Hilt"]),
+                  SkillItem(
+                      "Async", ["RxJava 2", "Kotlin Coroutines", "Threads"]),
+                  SkillItem("Soft", [
+                    "Public Speaking",
+                    "Tech interviews",
+                    "Design/Tech review",
+                    "Teamwork",
+                    "Feature leading",
+                  ]),
+                  SkillItem("Other", [
+                    "Python",
+                    "Figma",
+                  ]),
+                ], 32.0),
+              )
+            ],
+          );
+    }
+        });
+
+    
   }
 
   Widget _createBioInfoPage() {
@@ -175,14 +282,19 @@ class TestPageState extends State {
       subtitle: "On Earth since 1994",
       content: BioInfoContent(
         accentFilterColor: AppColors.ContentLightBlue,
-          data: [
-            BioInfoModel("assets/img/img_bio_sport.jpg", "Bachelor's degree", "Information security, sofware/hardware system integration"),
-            BioInfoModel("assets/img/img_bio_hobby.jpg", "Master's degree", "Software engineering, app architecture, distributed apps"),
-            BioInfoModel("assets/img/img_bio_sport.jpg", "Sport", "Swimming, long walks, airsoft trainings and local games with friends"),
-            BioInfoModel("assets/img/img_bio_hobby.jpg", "Hobby", "Music production, 3D Art, Pet projects, gaming"),
-            BioInfoModel("assets/img/img_bio_sport.jpg", "Last read book", "Blood, Sweat, and Pixels"),
-          ],
-        ),
+        data: [
+          BioInfoModel("assets/img/img_bio_sport.jpg", "Bachelor's degree",
+              "Information security, sofware/hardware system integration"),
+          BioInfoModel("assets/img/img_bio_hobby.jpg", "Master's degree",
+              "Software engineering, app architecture, distributed apps"),
+          BioInfoModel("assets/img/img_bio_sport.jpg", "Sport",
+              "Swimming, long walks, airsoft trainings and local games with friends"),
+          BioInfoModel("assets/img/img_bio_hobby.jpg", "Hobby",
+              "Music production, 3D Art, Pet projects, gaming"),
+          BioInfoModel("assets/img/img_bio_sport.jpg", "Last read book",
+              "Blood, Sweat, and Pixels"),
+        ],
+      ),
     );
   }
 
@@ -195,35 +307,35 @@ class TestPageState extends State {
       isPaddingEnabled: false,
       accentFilterColor: AppColors.ContentLightYellow,
       content: ImageGallery(
-        accentFilterColor: AppColors.ContentLightYellow,
-        onClickedAction: _handleRedirect,
-        imagesResList: [
-        ImageModel(
-            resourcePath: "assets/img/img_gallery_1.jpg",
-            title: "Do you really want it?",
-            description: "Part of my favorite songs",
-            goToUrl: "https://www.artstation.com/artwork/G8NeGQ"),
-        ImageModel(
-            resourcePath: "assets/img/img_gallery_2.jpg",
-            title: "Feel nothing",
-            description: "Testing new fog FX",
-            goToUrl: "https://www.artstation.com/artwork/NG60w5"),
-        ImageModel(
-            resourcePath: "assets/img/img_gallery_3.jpg",
-            title: "Cube in cave",
-            description: "Experiment with volumetric lights",
-            goToUrl: "https://www.artstation.com/artwork/KOWeoo"),
-        ImageModel(
-            resourcePath: "assets/img/img_gallery_4.jpg",
-            title: "Zero comfort zone",
-            description: "My first try with photoreal render",
-            goToUrl: "https://www.artstation.com/artwork/yJVD5x"),
-        ImageModel(
-            resourcePath: "assets/img/img_gallery_5.jpg",
-            title: "Art for my track",
-            description: "Unusual environment with my music logo",
-            goToUrl: "https://www.artstation.com/artwork/r9VJ1J"),
-      ]),
+          accentFilterColor: AppColors.ContentLightYellow,
+          onClickedAction: _handleRedirect,
+          imagesResList: [
+            ImageModel(
+                resourcePath: "assets/img/img_gallery_1.jpg",
+                title: "Do you really want it?",
+                description: "Part of my favorite songs",
+                goToUrl: "https://www.artstation.com/artwork/G8NeGQ"),
+            ImageModel(
+                resourcePath: "assets/img/img_gallery_2.jpg",
+                title: "Feel nothing",
+                description: "Testing new fog FX",
+                goToUrl: "https://www.artstation.com/artwork/NG60w5"),
+            ImageModel(
+                resourcePath: "assets/img/img_gallery_3.jpg",
+                title: "Cube in cave",
+                description: "Experiment with volumetric lights",
+                goToUrl: "https://www.artstation.com/artwork/KOWeoo"),
+            ImageModel(
+                resourcePath: "assets/img/img_gallery_4.jpg",
+                title: "Zero comfort zone",
+                description: "My first try with photoreal render",
+                goToUrl: "https://www.artstation.com/artwork/yJVD5x"),
+            ImageModel(
+                resourcePath: "assets/img/img_gallery_5.jpg",
+                title: "Art for my track",
+                description: "Unusual environment with my music logo",
+                goToUrl: "https://www.artstation.com/artwork/r9VJ1J"),
+          ]),
     );
   }
 
