@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:threeactions_area/resources/Resources.dart';
-import 'package:threeactions_area/widgets/music/CoverArtCard.dart';
-import 'package:threeactions_area/widgets/music/MusicServiceCard.dart';
+import 'package:threeactions_area/widgets/music_widgets/CoverArtCard.dart';
+import 'package:threeactions_area/widgets/music_widgets/MusicServiceCard.dart';
 
 class MusicReleasePage extends StatefulWidget {
   @override

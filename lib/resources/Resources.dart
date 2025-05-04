@@ -8,6 +8,7 @@ class AppColors {
   static const ContentLightRed = Color(0xffE6A8A1);
 
   static const BgBlack45 = Color(0xA6000000);
+  static const BgDarkBlue = Color(0xff090F11);
 }
 class TextStylesContent {
 

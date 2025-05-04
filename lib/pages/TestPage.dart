@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:threeactions_area/resources/Resources.dart';
 import 'package:threeactions_area/widgets/base/TextSubtitle.dart';
 import 'package:threeactions_area/widgets/base/TextTitle.dart';
-import 'package:threeactions_area/widgets/cv_elements/EventsBlock.dart';
+import 'package:threeactions_area/widgets/portfolio_widgets/EventsBlock.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 import '../widgets/base/ImageGallery.dart';
 import '../widgets/base/MainPageInfoButton.dart';
 import '../widgets/base/SkillsColumn.dart';
 import '../widgets/base/SocialButton.dart';
-import '../widgets/bio_elements/BioInfoContent.dart';
-import '../widgets/cv_elements/WorkExpTimeline.dart';
+import '../widgets/bio_widgets/BioInfoContent.dart';
+import '../widgets/portfolio_widgets/WorkExpTimeline.dart';
 import 'base/BaseInfoPage.dart';
 
 class TestPage extends StatefulWidget {
@@ -131,7 +131,7 @@ class TestPageState extends State {
       mainImageAsset: "assets/img/button_bg_skills.png",
       logoImageAsset: "assets/img/logo_skills_big.png",
       subtitle: "Hard & Soft",
-      isPaddingEnabled: false,
+      isAllPaddingEnabled: false,
       accentFilterColor: AppColors.ContentDarkBlue,
       content: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -304,7 +304,7 @@ class TestPageState extends State {
       mainImageAsset: "assets/img/button_bg_art.png",
       logoImageAsset: "assets/img/logo_art_big.png",
       isScrollable: false,
-      isPaddingEnabled: false,
+      isAllPaddingEnabled: false,
       accentFilterColor: AppColors.ContentLightYellow,
       content: ImageGallery(
           accentFilterColor: AppColors.ContentLightYellow,
@@ -358,38 +358,38 @@ class TestPageState extends State {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SocialButton(
-                imageUrl:
+                imagePath:
                     "https://static-00.iconduck.com/assets.00/gmail-icon-512x511-fih5xfbp.png",
                 redirectUrl: "mailto:greyson.dean@email.com",
                 enableStartPadding: false,
               ),
               SocialButton(
-                imageUrl:
+                imagePath:
                     "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
                 redirectUrl: "https://github.com/GreyLabsDev",
               ),
               SocialButton(
-                imageUrl:
+                imagePath:
                     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXwDJB5CoM0AwKPRHbg4NYNzP6nNBWJ6a1E_MwbkTlDby2KG6lOfoDiL23AcMUuGy05MI&usqp=CAU",
                 redirectUrl: "https://www.linkedin.com/in/sergey-sh/",
               ),
               SocialButton(
-                imageUrl:
+                imagePath:
                     "http://store-images.s-microsoft.com/image/apps.31997.13510798887167234.6cd52261-a276-49cf-9b6b-9ef8491fb799.30e70ce4-33c5-43d6-9af1-491fe4679377",
                 redirectUrl: "https://www.instagram.com/sergey.shr/",
               ),
               SocialButton(
-                imageUrl:
+                imagePath:
                     "https://cdn-icons-png.flaticon.com/512/124/124021.png",
                 redirectUrl: "https://twitter.com/sergey_shr",
               ),
               SocialButton(
-                imageUrl:
+                imagePath:
                     "https://cdn-icons-png.flaticon.com/512/5968/5968666.png",
                 redirectUrl: "https://www.artstation.com/threeactions",
               ),
               SocialButton(
-                imageUrl:
+                imagePath:
                     "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Spotify_App_Logo.svg/2048px-Spotify_App_Logo.svg.png",
                 redirectUrl:
                     "https://open.spotify.com/track/3NHfDEuRhrnpWN5hj5xRhr?si=NoxU-5qfSKebRbE7nXMALw",

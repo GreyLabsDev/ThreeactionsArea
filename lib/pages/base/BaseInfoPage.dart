@@ -9,9 +9,11 @@ class BaseInfoPage extends StatelessWidget {
   final String logoImageAsset;
   final Widget content;
   bool isScrollable;
-  bool isPaddingEnabled;
+  bool isAllPaddingEnabled;
+  bool isHorizontalPaddingEabled;
   String? subtitle;
   Color? accentFilterColor;
+  Color? bgColor;
 
   BaseInfoPage(
       {super.key,
@@ -20,16 +22,26 @@ class BaseInfoPage extends StatelessWidget {
       required this.logoImageAsset,
       required this.content,
       this.isScrollable = true,
-      this.isPaddingEnabled = true,
+      this.isAllPaddingEnabled = true,
+      this.isHorizontalPaddingEabled = false,
       this.subtitle,
-      this.accentFilterColor});
+      this.accentFilterColor,
+      this.bgColor});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
-      body: _buildAdaptiveBody(title, mainImageAsset, logoImageAsset, content,
-          isScrollable, isPaddingEnabled, subtitle, accentFilterColor),
+      backgroundColor: bgColor ?? Colors.black,
+      body: _buildAdaptiveBody(
+          title,
+          mainImageAsset,
+          logoImageAsset,
+          content,
+          isScrollable,
+          isAllPaddingEnabled,
+          isHorizontalPaddingEabled,
+          subtitle,
+          accentFilterColor),
     );
   }
 
@@ -41,11 +53,12 @@ class BaseInfoPage extends StatelessWidget {
       String logoImageAsset,
       Widget content,
       bool isScrollable,
-      bool isPaddingEnabled,
+      bool isAllPaddingEnabled,
+      bool isHorizontalPaddingEabled,
       String? subtitle,
       Color? accentFilterColorx) {
     return LayoutBuilder(
-      builder: (BuildContext context, BoxConstraints constraints) {
+        builder: (BuildContext context, BoxConstraints constraints) {
       bool isNeedToSwitchVertical = constraints.maxWidth <= 990;
 
       if (isNeedToSwitchVertical) {
@@ -61,7 +74,8 @@ class BaseInfoPage extends StatelessWidget {
               color: Colors.black54,
               colorBlendMode: BlendMode.darken,
             ),
-            _buildMainContent(content, isNeedToSwitchVertical)
+            _buildMainContent(
+                content, isNeedToSwitchVertical, isHorizontalPaddingEabled)
           ],
         );
       } else {
@@ -92,7 +106,8 @@ class BaseInfoPage extends StatelessWidget {
               flex: 1,
               child: Container(
                   alignment: Alignment.topLeft,
-                  child: _buildMainContent(content, isNeedToSwitchVertical)),
+                  child: _buildMainContent(content, isNeedToSwitchVertical,
+                      isHorizontalPaddingEabled)),
             ),
             Transform.flip(
               flipX: true,
@@ -113,8 +128,7 @@ class BaseInfoPage extends StatelessWidget {
                                   accentFilterColor!, BlendMode.srcATop),
                               child: Image.asset(logoImageAsset),
                             )
-                          : Image.asset(logoImageAsset))
-                  ),
+                          : Image.asset(logoImageAsset))),
             ),
           ],
         );
@@ -123,11 +137,10 @@ class BaseInfoPage extends StatelessWidget {
   }
 
   Widget _buildAdaptiveSubtitle(
-      bool isPaddingEnabled,
+      bool isAllPaddingEnabled,
       bool isNeedToSwitchVertical,
       String logoImageAsset,
       Color? accentFilterColor) {
-
     Widget bgImage = Padding(
       padding: EdgeInsets.all(16.0),
       child: Opacity(
@@ -140,56 +153,62 @@ class BaseInfoPage extends StatelessWidget {
     );
 
     return Align(
-        alignment: Alignment.bottomCenter,
-        child: isNeedToSwitchVertical ? Stack(
-          alignment: AlignmentDirectional.center,
-          children: [
-            RotatedBox(
-              quarterTurns: 1,
-              child: accentFilterColor != null
-                  ? ColorFiltered(
-                      colorFilter: ColorFilter.mode(
-                          accentFilterColor, BlendMode.srcATop),
-                      child: bgImage,
-                    )
-                  : bgImage,
-            ),
-            isPaddingEnabled
-                ? Padding(
-                    padding: EdgeInsets.only(top: 18.0, bottom: 18.0),
-                    child: TextTitle(
-                      text: subtitle!,
-                      textColor: accentFilterColor ?? AppColors.ContentWhite,
-                    ),
-                  )
-                : TextTitle(
+      alignment: Alignment.bottomCenter,
+      child: isNeedToSwitchVertical
+          ? Stack(
+              alignment: AlignmentDirectional.center,
+              children: [
+                RotatedBox(
+                  quarterTurns: 1,
+                  child: accentFilterColor != null
+                      ? ColorFiltered(
+                          colorFilter: ColorFilter.mode(
+                              accentFilterColor, BlendMode.srcATop),
+                          child: bgImage,
+                        )
+                      : bgImage,
+                ),
+                isAllPaddingEnabled
+                    ? Padding(
+                        padding: EdgeInsets.only(top: 18.0, bottom: 18.0),
+                        child: TextTitle(
+                          text: subtitle!,
+                          textColor:
+                              accentFilterColor ?? AppColors.ContentWhite,
+                        ),
+                      )
+                    : TextTitle(
+                        text: subtitle!,
+                        textColor: accentFilterColor ?? AppColors.ContentWhite,
+                      ),
+              ],
+            )
+          : isAllPaddingEnabled
+              ? Padding(
+                  padding: EdgeInsets.only(top: 18.0, bottom: 18.0),
+                  child: TextTitleBig(
                     text: subtitle!,
                     textColor: accentFilterColor ?? AppColors.ContentWhite,
                   ),
-          ],
-        ) : isPaddingEnabled
-                ? Padding(
-                    padding: EdgeInsets.only(top: 18.0, bottom: 18.0),
-                    child: TextTitleBig(
-                      text: subtitle!,
-                      textColor: accentFilterColor ?? AppColors.ContentWhite,
-                    ),
-                  )
-                : TextTitleBig(
-                    text: subtitle!,
-                    textColor: accentFilterColor ?? AppColors.ContentWhite,
-                  ),);
+                )
+              : TextTitleBig(
+                  text: subtitle!,
+                  textColor: accentFilterColor ?? AppColors.ContentWhite,
+                ),
+    );
   }
 
-  Widget _buildMainContent(Widget content, bool isNeedToSwitchVertical) {
+  Widget _buildMainContent(Widget content, bool isNeedToSwitchVertical,
+      bool isHorizontalPaddingEabled) {
     if (subtitle != null) {
       return Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          _buildAdaptiveSubtitle(isPaddingEnabled, isNeedToSwitchVertical,
-              logoImageAsset, accentFilterColor),
-          Flexible(child: _buildContentContainer(content))
+          _buildAdaptiveSubtitle(isAllPaddingEnabled,
+              isNeedToSwitchVertical, logoImageAsset, accentFilterColor),
+          Flexible(
+              child: _buildContentContainer(content))
         ],
       );
     } else {
@@ -208,9 +227,17 @@ class BaseInfoPage extends StatelessWidget {
   }
 
   Widget _buildContentByPadding(Widget content) {
-    if (isPaddingEnabled) {
+    double horizontalPadding = isHorizontalPaddingEabled ? 32.0 : 0.0;
+    double verticalPadding = isAllPaddingEnabled ? 32.0 : 0.0;
+    EdgeInsets padding = EdgeInsets.only(
+      top: verticalPadding,
+      left: horizontalPadding,
+      right: horizontalPadding,
+      bottom: verticalPadding,
+    );
+    if (isAllPaddingEnabled || isHorizontalPaddingEabled) {
       return Padding(
-        padding: EdgeInsets.all(32.0),
+        padding: padding,
         child: content,
       );
     } else {

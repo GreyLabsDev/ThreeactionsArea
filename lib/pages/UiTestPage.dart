@@ -2,7 +2,7 @@ import 'dart:core';
 
 import 'package:flutter/material.dart';
 import 'package:threeactions_area/pages/base/BaseInfoPage.dart';
-import '../widgets/bio_elements/BioInfoContent.dart';
+import '../widgets/bio_widgets/BioInfoContent.dart';
 
 class UiTestpage extends StatefulWidget {
   @override

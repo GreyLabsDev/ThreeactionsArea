@@ -49,32 +49,32 @@ class MainPageState extends State<MainPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SocialButton(
-                        imageUrl:
+                        imagePath:
                             "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
                         redirectUrl: "https://github.com/GreyLabsDev",
                       ),
                       SocialButton(
-                        imageUrl:
+                        imagePath:
                             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXwDJB5CoM0AwKPRHbg4NYNzP6nNBWJ6a1E_MwbkTlDby2KG6lOfoDiL23AcMUuGy05MI&usqp=CAU",
                         redirectUrl: "https://www.linkedin.com/in/sergey-sh/",
                       ),
                       SocialButton(
-                        imageUrl:
+                        imagePath:
                             "http://store-images.s-microsoft.com/image/apps.31997.13510798887167234.6cd52261-a276-49cf-9b6b-9ef8491fb799.30e70ce4-33c5-43d6-9af1-491fe4679377",
                         redirectUrl: "https://www.instagram.com/sergey.shr/",
                       ),
                       SocialButton(
-                        imageUrl:
+                        imagePath:
                             "https://cdn-icons-png.flaticon.com/512/124/124021.png",
                         redirectUrl: "https://twitter.com/sergey_shr",
                       ),
                       SocialButton(
-                        imageUrl:
+                        imagePath:
                             "https://cdna.artstation.com/p/assets/images/images/047/850/148/large/arthur-deleye-artstation-logo.jpg?1648587486",
                         redirectUrl: "https://www.artstation.com/threeactions",
                       ),
                       SocialButton(
-                        imageUrl:
+                        imagePath:
                             "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Spotify_App_Logo.svg/2048px-Spotify_App_Logo.svg.png",
                         redirectUrl: "https://open.spotify.com/track/3NHfDEuRhrnpWN5hj5xRhr?si=NoxU-5qfSKebRbE7nXMALw",
                       )

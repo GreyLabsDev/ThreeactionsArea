@@ -30,6 +30,7 @@ dependencies:
   cupertino_icons: ^1.0.6
   url_launcher: ^6.3.0
   collection: ^1.18.0
+  flutter_svg: ^2.1.0
 
 dev_dependencies:
   flutter_test:
@@ -120,3 +121,8 @@ flutter:
     - assets/img/card_conf_uic.jpg
     - assets/img/img_bio_sport.jpg
     - assets/img/img_bio_hobby.jpg
+    - assets/img/ic_github.svg
+    - assets/img/ic_google.svg
+    - assets/img/ic_linkedin.svg
+    - assets/img/ic_telegram.svg
+    - assets/img/ic_x_twitter.svg
