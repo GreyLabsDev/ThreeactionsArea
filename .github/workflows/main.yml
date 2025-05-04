@@ -1,0 +1,32 @@
+name: "Web - Build and Publish"
+on:
+  push:
+    branches:
+    - main
+jobs:
+  build-and-deploy:
+    name: Build Web
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        channel: stable
+
+    - name: Install dependencies
+      run: flutter pub get
+
+    - name: Build web
+      run: flutter build web --release --base-href /ThreeactionsArea/
+      env:
+        FLUTTER_BUILD_WEB: true
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./build/web
+        keep_files: true
