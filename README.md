@@ -1,3 +1,5 @@
+[![Web - Build and Publish](https://github.com/GreyLabsDev/ThreeactionsArea/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/GreyLabsDev/ThreeactionsArea/actions/workflows/main.yml)
+
 # ThreeactionsArea
 
 My personal single-page website. It was developed for sharing py music releases, some info about me and my projects.
