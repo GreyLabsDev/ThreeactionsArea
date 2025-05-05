@@ -176,15 +176,8 @@ Widget _buildAdaptiveSkillTable(bool useRow) {
         spacing: 16.0,
         runSpacing: 16.0,
         children: [
-          Flexible(
-            flex: 1,
-            fit: FlexFit.tight,
-            child: WorkExpTimeline(),
-          ),
-          Flexible(
-            flex: 2,
-            fit: FlexFit.loose,
-            child: SkillsColumn([
+          WorkExpTimeline(),
+          SkillsColumn([
               SkillItem("Main", ["Android", "Kotlin", "Java", "Flutter"]),
               SkillItem("UI", ["Jetpack Compose", "XML"]),
               SkillItem("Data", [
@@ -220,7 +213,6 @@ Widget _buildAdaptiveSkillTable(bool useRow) {
                 "FreeCAD"
               ]),
             ], 32.0),
-          )
         ],
       );
     }
