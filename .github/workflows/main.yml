@@ -16,17 +16,15 @@ jobs:
       with:
         channel: stable
 
-    - name: Install dependencies
-      run: flutter pub get
+    - name: Build the Flutter web application
+      shell: bash
+      run: |
+        flutter pub get
+        flutter build web --release --base-href "https://greylabsdev.github.io/ThreeactionsArea/"
 
-    - name: Build web
-      run: flutter build web --release --base-href /ThreeactionsArea/
-      env:
-        FLUTTER_BUILD_WEB: true
-
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./build/web
-        keep_files: true
+    - name: Deploy to GitHub pages
+      shell: bash
+      run: |
+        git add build/web/ -f
+        git commit -m "Deploy Flutter Web Application"
+        git push origin $(git subtree split --prefix=build/web/):main -f
