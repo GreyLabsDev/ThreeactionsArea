@@ -131,7 +131,27 @@ Widget _buildAdaptiveSkillTable(bool useRow) {
           Flexible(
             flex: 1,
             fit: FlexFit.tight,
-            child: SkillsColumn([
+            child: _buildSkillsList(16.0),
+          )
+        ],
+      );
+    } else {
+      return Wrap(
+        direction: Axis.horizontal,
+        alignment: WrapAlignment.center,
+        spacing: 16.0,
+        runSpacing: 16.0,
+        children: [
+          WorkExpTimeline(),
+          _buildSkillsList(32.0),
+        ],
+      );
+    }
+  });
+}
+
+Widget _buildSkillsList(double padding) {
+  return SkillsColumn([
               SkillItem("Main", ["Android", "Kotlin", "Java", "Flutter"]),
               SkillItem("UI", ["Jetpack Compose", "XML"]),
               SkillItem("Data", [
@@ -167,56 +187,5 @@ Widget _buildAdaptiveSkillTable(bool useRow) {
                 "Python",
                 "Figma",
               ]),
-            ], 16.0),
-          )
-        ],
-      );
-    } else {
-      return Wrap(
-        direction: Axis.horizontal,
-        alignment: WrapAlignment.center,
-        spacing: 16.0,
-        runSpacing: 16.0,
-        children: [
-          WorkExpTimeline(),
-          SkillsColumn([
-              SkillItem("Main", ["Android", "Kotlin", "Java", "Flutter"]),
-              SkillItem("UI", ["Jetpack Compose", "XML"]),
-              SkillItem("Data", [
-                "Realm",
-                "Room",
-                "SQL",
-                "Retrofit",
-                "GraphQL",
-                "JSON",
-                "XML"
-              ]),
-              SkillItem("Architecture", [
-                "Clean",
-                "MVP",
-                "MVVM",
-                "MVI",
-                "Redux",
-                "Multi Module",
-                "SDUI/BDUI"
-              ]),
-              SkillItem("DI", ["Dagger 2", "Koin", "Hilt"]),
-              SkillItem("Async", ["RxJava 2", "Kotlin Coroutines", "Threads"]),
-              SkillItem("Soft", [
-                "Public Speaking",
-                "Tech interviews",
-                "Design/Tech review",
-                "Teamwork",
-                "Feature leading",
-              ]),
-              SkillItem("Other", [
-                "Python",
-                "Figma",
-                "FreeCAD"
-              ]),
-            ], 32.0),
-        ],
-      );
-    }
-  });
+            ], padding);
 }
