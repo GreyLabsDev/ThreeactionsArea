@@ -140,6 +140,8 @@ Widget _buildAdaptiveSkillTable(bool useRow) {
                 "SQL",
                 "Retrofit",
                 "GraphQL",
+                "WebSocket",
+                "Firebase",
                 "JSON",
                 "XML"
               ]),
