@@ -227,8 +227,8 @@ class BaseInfoPage extends StatelessWidget {
   }
 
   Widget _buildContentByPadding(Widget content) {
-    double horizontalPadding = isHorizontalPaddingEabled ? 32.0 : 0.0;
-    double verticalPadding = isAllPaddingEnabled ? 32.0 : 0.0;
+    double horizontalPadding = isHorizontalPaddingEabled ? 16.0 : 0.0;
+    double verticalPadding = isAllPaddingEnabled ? 16.0 : 0.0;
     EdgeInsets padding = EdgeInsets.only(
       top: verticalPadding,
       left: horizontalPadding,
