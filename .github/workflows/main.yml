@@ -16,11 +16,24 @@ jobs:
       with:
         channel: stable
 
+    - name: Configure Flutter for web
+      shell: bash
+      run: |
+        flutter config --enable-web
+        flutter create --platforms=web .
+
     - name: Build the Flutter web application
       shell: bash
       run: |
         flutter pub get
         flutter build web --release --base-href "/ThreeactionsArea/"
+
+    - name: Configure Git
+      shell: bash
+      run: |
+        git config --global user.name "GreyLabsDev"
+        git config --global user.email "greyson.dean@gmail.com"
+        git config --global --add safe.directory /github/workspace
 
     - name: Deploy to GitHub pages
       shell: bash
