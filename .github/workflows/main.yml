@@ -20,7 +20,7 @@ jobs:
       shell: bash
       run: |
         flutter pub get
-        flutter build web --release --base-href "https://greylabsdev.github.io/ThreeactionsArea/"
+        flutter build web --release --base-href "/ThreeactionsArea/"
 
     - name: Deploy to GitHub pages
       shell: bash
