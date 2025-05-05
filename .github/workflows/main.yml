@@ -26,7 +26,7 @@ jobs:
       shell: bash
       run: |
         flutter pub get
-        flutter build web --release --base-href "/ThreeactionsArea/"
+        flutter build web --release --web-renderer canvaskit --base-href "/ThreeactionsArea/"
 
     - name: Configure Git
       shell: bash
