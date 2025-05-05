@@ -37,8 +37,9 @@ class PortfolioMainPage extends StatelessWidget {
               height: 8.0,
             ),
             TextTitle(
-              text: "Android Developer / Speaker",
+              text: "Android Developer\n-\nSpeaker",
               textColor: AppColors.ContentDarkBlue,
+              textAlign: TextAlign.center,
             ),
             SizedBox(
               height: 8.0,
