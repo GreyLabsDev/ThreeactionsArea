@@ -27,7 +27,7 @@ class PortfolioMainPage extends StatelessWidget {
         logoImageAsset: "assets/img/logo_skills_big.png",
         subtitle: "S.SH",
         isAllPaddingEnabled: false,
-        isHorizontalPaddingEabled: false,
+        isHorizontalPaddingEabled: true,
         accentFilterColor: AppColors.ContentDarkBlue,
         bgColor: AppColors.BgDarkBlue,
         content: Column(
